@@ -1,0 +1,408 @@
+[
+ {
+  "module": "lin",
+  "stage": "single",
+  "prompt_tokens": 949,
+  "output_tokens": 1659,
+  "seconds": 21.118618646
+ },
+ {
+  "module": "bldc",
+  "stage": "single",
+  "prompt_tokens": 2299,
+  "output_tokens": 2141,
+  "seconds": 28.809526184
+ },
+ {
+  "module": "led",
+  "stage": "single",
+  "prompt_tokens": 1212,
+  "output_tokens": 2028,
+  "seconds": 25.427800635
+ },
+ {
+  "module": "cmd",
+  "stage": "single",
+  "prompt_tokens": 1787,
+  "output_tokens": 3243,
+  "seconds": 42.930651407
+ },
+ {
+  "module": "lin",
+  "stage": "loop",
+  "prompt_tokens": 3692,
+  "output_tokens": 1651,
+  "seconds": 22.9945062
+ },
+ {
+  "module": "lin",
+  "stage": "loop",
+  "prompt_tokens": 6178,
+  "output_tokens": 1651,
+  "seconds": 25.129629275
+ },
+ {
+  "module": "lin",
+  "stage": "loop",
+  "prompt_tokens": 8664,
+  "output_tokens": 1452,
+  "seconds": 21.543395369
+ },
+ {
+  "module": "lin",
+  "stage": "loop",
+  "prompt_tokens": 10716,
+  "output_tokens": 1452,
+  "seconds": 22.657535699
+ },
+ {
+  "module": "bldc",
+  "stage": "loop",
+  "prompt_tokens": 5330,
+  "output_tokens": 1722,
+  "seconds": 26.222290157
+ },
+ {
+  "module": "bldc",
+  "stage": "loop",
+  "prompt_tokens": 7371,
+  "output_tokens": 1540,
+  "seconds": 22.773431929
+ },
+ {
+  "module": "led",
+  "stage": "loop",
+  "prompt_tokens": 4573,
+  "output_tokens": 1939,
+  "seconds": 28.801391125
+ },
+ {
+  "module": "led",
+  "stage": "loop",
+  "prompt_tokens": 7202,
+  "output_tokens": 1884,
+  "seconds": 27.998515779
+ },
+ {
+  "module": "led",
+  "stage": "loop",
+  "prompt_tokens": 9776,
+  "output_tokens": 1802,
+  "seconds": 27.512083044
+ },
+ {
+  "module": "led",
+  "stage": "loop",
+  "prompt_tokens": 12268,
+  "output_tokens": 1674,
+  "seconds": 27.183214935
+ },
+ {
+  "module": "cmd",
+  "stage": "loop",
+  "prompt_tokens": 6414,
+  "output_tokens": 3243,
+  "seconds": 49.602736029
+ },
+ {
+  "module": "cmd",
+  "stage": "loop",
+  "prompt_tokens": 11041,
+  "output_tokens": 3057,
+  "seconds": 49.502332385
+ },
+ {
+  "module": "cmd",
+  "stage": "loop",
+  "prompt_tokens": 15457,
+  "output_tokens": 3057,
+  "seconds": 53.872769131
+ },
+ {
+  "module": "cmd",
+  "stage": "loop",
+  "prompt_tokens": 15185,
+  "output_tokens": 3057,
+  "seconds": 62.411929742
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 12858,
+  "output_tokens": 1889,
+  "seconds": 31.778510248
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 15813,
+  "output_tokens": 1452,
+  "seconds": 25.654585187
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 15599,
+  "output_tokens": 1452,
+  "seconds": 34.475383031
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 14916,
+  "output_tokens": 1452,
+  "seconds": 33.953972079
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 16137,
+  "output_tokens": 1624,
+  "seconds": 38.492131743
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 9520,
+  "output_tokens": 3136,
+  "seconds": 48.496759553
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 13251,
+  "output_tokens": 2728,
+  "seconds": 45.548677721
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 16298,
+  "output_tokens": 3119,
+  "seconds": 53.820544358
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 15790,
+  "output_tokens": 2937,
+  "seconds": 60.964135265
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 16119,
+  "output_tokens": 3112,
+  "seconds": 64.134143022
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 14480,
+  "output_tokens": 2589,
+  "seconds": 52.734916131
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 14538,
+  "output_tokens": 2592,
+  "seconds": 53.059250816
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 14948,
+  "output_tokens": 2775,
+  "seconds": 57.180657181
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 16372,
+  "output_tokens": 2775,
+  "seconds": 58.52025525
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 15514,
+  "output_tokens": 2775,
+  "seconds": 58.096419675
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 14230,
+  "output_tokens": 3598,
+  "seconds": 69.896757281
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 14795,
+  "output_tokens": 3057,
+  "seconds": 61.176809059
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 14795,
+  "output_tokens": 3057,
+  "seconds": 61.505952497
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 14795,
+  "output_tokens": 3057,
+  "seconds": 62.023302114
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 14998,
+  "output_tokens": 3057,
+  "seconds": 62.160920558
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 15965,
+  "output_tokens": 1810,
+  "seconds": 41.588743373
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 15117,
+  "output_tokens": 1828,
+  "seconds": 40.876933091
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 15216,
+  "output_tokens": 1523,
+  "seconds": 35.934282734
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 16277,
+  "output_tokens": 1541,
+  "seconds": 36.994368262
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 16366,
+  "output_tokens": 963,
+  "seconds": 27.574956526
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 14464,
+  "output_tokens": 6144,
+  "seconds": 113.95018457
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 15221,
+  "output_tokens": 6144,
+  "seconds": 116.050258656
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 15900,
+  "output_tokens": 6144,
+  "seconds": 117.506386149
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 15382,
+  "output_tokens": 6144,
+  "seconds": 117.267800503
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 15382,
+  "output_tokens": 6144,
+  "seconds": 117.366610917
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 15700,
+  "output_tokens": 3226,
+  "seconds": 64.794194784
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 16361,
+  "output_tokens": 6144,
+  "seconds": 116.100498749
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 15838,
+  "output_tokens": 6144,
+  "seconds": 116.71585314
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 15293,
+  "output_tokens": 6144,
+  "seconds": 116.884855271
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 15174,
+  "output_tokens": 6144,
+  "seconds": 116.851237397
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 14205,
+  "output_tokens": 4110,
+  "seconds": 79.234235906
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 15354,
+  "output_tokens": 4110,
+  "seconds": 81.413122616
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 15148,
+  "output_tokens": 4110,
+  "seconds": 81.308291039
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 12927,
+  "output_tokens": 4110,
+  "seconds": 78.069010261
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 12927,
+  "output_tokens": 4110,
+  "seconds": 78.203688752
+ }
+]

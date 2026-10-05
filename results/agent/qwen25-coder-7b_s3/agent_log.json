@@ -1,0 +1,142 @@
+[
+ {
+  "module": "lin",
+  "stage": "single",
+  "prompt_tokens": 949,
+  "output_tokens": 882,
+  "seconds": 17.496381207
+ },
+ {
+  "module": "bldc",
+  "stage": "single",
+  "prompt_tokens": 2299,
+  "output_tokens": 1431,
+  "seconds": 29.367488256
+ },
+ {
+  "module": "led",
+  "stage": "single",
+  "prompt_tokens": 1212,
+  "output_tokens": 1106,
+  "seconds": 22.206900763
+ },
+ {
+  "module": "cmd",
+  "stage": "single",
+  "prompt_tokens": 1787,
+  "output_tokens": 6144,
+  "seconds": 129.09594146
+ },
+ {
+  "module": "lin",
+  "stage": "loop",
+  "prompt_tokens": 2728,
+  "output_tokens": 894,
+  "seconds": 18.908796341
+ },
+ {
+  "module": "lin",
+  "stage": "loop",
+  "prompt_tokens": 4507,
+  "output_tokens": 894,
+  "seconds": 18.95862995
+ },
+ {
+  "module": "lin",
+  "stage": "loop",
+  "prompt_tokens": 6286,
+  "output_tokens": 894,
+  "seconds": 19.606052003
+ },
+ {
+  "module": "lin",
+  "stage": "loop",
+  "prompt_tokens": 8065,
+  "output_tokens": 894,
+  "seconds": 19.432135832
+ },
+ {
+  "module": "bldc",
+  "stage": "loop",
+  "prompt_tokens": 4345,
+  "output_tokens": 1431,
+  "seconds": 30.684093868
+ },
+ {
+  "module": "bldc",
+  "stage": "loop",
+  "prompt_tokens": 6391,
+  "output_tokens": 1431,
+  "seconds": 31.43725259
+ },
+ {
+  "module": "bldc",
+  "stage": "loop",
+  "prompt_tokens": 8437,
+  "output_tokens": 1431,
+  "seconds": 30.960433932
+ },
+ {
+  "module": "bldc",
+  "stage": "loop",
+  "prompt_tokens": 10483,
+  "output_tokens": 1431,
+  "seconds": 31.633652361
+ },
+ {
+  "module": "led",
+  "stage": "loop",
+  "prompt_tokens": 2960,
+  "output_tokens": 1117,
+  "seconds": 23.896604538
+ },
+ {
+  "module": "led",
+  "stage": "loop",
+  "prompt_tokens": 4708,
+  "output_tokens": 1117,
+  "seconds": 23.676014631
+ },
+ {
+  "module": "led",
+  "stage": "loop",
+  "prompt_tokens": 6456,
+  "output_tokens": 1117,
+  "seconds": 24.438896772
+ },
+ {
+  "module": "led",
+  "stage": "loop",
+  "prompt_tokens": 8204,
+  "output_tokens": 1117,
+  "seconds": 24.150782283
+ },
+ {
+  "module": "cmd",
+  "stage": "loop",
+  "prompt_tokens": 9242,
+  "output_tokens": 6144,
+  "seconds": 137.363712909
+ },
+ {
+  "module": "cmd",
+  "stage": "loop",
+  "prompt_tokens": 15256,
+  "output_tokens": 6144,
+  "seconds": 146.805600319
+ },
+ {
+  "module": "cmd",
+  "stage": "loop",
+  "prompt_tokens": 15256,
+  "output_tokens": 6144,
+  "seconds": 147.742688184
+ },
+ {
+  "module": "cmd",
+  "stage": "loop",
+  "prompt_tokens": 15256,
+  "output_tokens": 6144,
+  "seconds": 148.157173832
+ }
+]

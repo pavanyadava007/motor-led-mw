@@ -1,0 +1,545 @@
+{
+ "model": "qwen3-coder:30b",
+ "seed": 3,
+ "temperature": 0.2,
+ "fix_iters": 4,
+ "mutant_rounds": 2,
+ "train_mutants": 101,
+ "heldout_mutants": 93,
+ "single_first_try": {
+  "lin": {
+   "built": true,
+   "passed": 1,
+   "failed": 11
+  },
+  "bldc": {
+   "built": true,
+   "passed": 13,
+   "failed": 6
+  },
+  "led": {
+   "built": true,
+   "passed": 10,
+   "failed": 8
+  },
+  "cmd": {
+   "built": true,
+   "passed": 6,
+   "failed": 15
+  }
+ },
+ "single_cleanup": {
+  "lin": {
+   "built": true,
+   "removed": [
+    "test_checksum_carry_wrap",
+    "test_checksum_empty_data",
+    "test_checksum_enhanced",
+    "test_checksum_master_slave_frames",
+    "test_checksum_single_byte",
+    "test_checksum_zero_data",
+    "test_pid_basic",
+    "test_pid_boundary_values",
+    "test_pid_parity_calculation",
+    "test_pid_valid_basic",
+    "test_pid_valid_edge_cases"
+   ],
+   "tests": 1
+  },
+  "bldc": {
+   "built": true,
+   "removed": [
+    "test_fault_update_latched",
+    "test_fault_update_overcurrent",
+    "test_pi_step_normal",
+    "test_pi_step_saturation",
+    "test_ramp_move_by_max_step",
+    "test_speed_rpm_normal"
+   ],
+   "tests": 13
+  },
+  "led": {
+   "built": true,
+   "removed": [
+    "test_derate_q15_normal",
+    "test_gamma_boundary_values",
+    "test_gamma_mid",
+    "test_led_mix_full_brightness",
+    "test_led_mix_max_rgb",
+    "test_led_mix_with_derating",
+    "test_led_mix_with_gain",
+    "test_led_mix_with_gamma"
+   ],
+   "tests": 10
+  },
+  "cmd": {
+   "built": true,
+   "removed": [
+    "test_process_clear_fault_ok",
+    "test_process_invalid_payload_length",
+    "test_process_no_handlers",
+    "test_process_no_verify_fn",
+    "test_process_replay",
+    "test_process_seq_advancement",
+    "test_process_set_led_ok",
+    "test_process_set_speed_arg_error",
+    "test_process_set_speed_max_rpm",
+    "test_process_set_speed_min_rpm",
+    "test_process_set_speed_ok",
+    "test_process_stop_ok",
+    "test_process_unknown_command",
+    "test_process_wrong_mac",
+    "test_process_wrong_version"
+   ],
+   "tests": 6
+  }
+ },
+ "loop_trace": {
+  "lin": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 1,
+    "failed": 11
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 8
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 2,
+    "failed": 9
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 7
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 5
+   }
+  ],
+  "bldc": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 13,
+    "failed": 6
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 13,
+    "failed": 2
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 13,
+    "failed": 2
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 13,
+    "failed": 0
+   }
+  ],
+  "led": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 10,
+    "failed": 8
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 17,
+    "failed": 1
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 18,
+    "failed": 0
+   }
+  ],
+  "cmd": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 6,
+    "failed": 15
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 15
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 15
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 15
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   }
+  ]
+ },
+ "loop_cleanup": {
+  "lin": {
+   "built": true,
+   "removed": [
+    "test_pid_basic",
+    "test_pid_boundary_values",
+    "test_pid_parity_calculation",
+    "test_pid_valid_basic",
+    "test_pid_valid_edge_cases"
+   ],
+   "tests": 3
+  },
+  "bldc": {
+   "built": true,
+   "removed": [],
+   "tests": 13
+  },
+  "led": {
+   "built": true,
+   "removed": [],
+   "tests": 18
+  },
+  "cmd": {
+   "built": true,
+   "removed": [
+    "test_process_clear_fault_ok",
+    "test_process_invalid_payload_length",
+    "test_process_no_handlers",
+    "test_process_no_verify_fn",
+    "test_process_replay",
+    "test_process_seq_advancement",
+    "test_process_set_led_ok",
+    "test_process_set_speed_arg_error",
+    "test_process_set_speed_max_rpm",
+    "test_process_set_speed_min_rpm",
+    "test_process_set_speed_ok",
+    "test_process_stop_ok",
+    "test_process_unknown_command",
+    "test_process_wrong_mac",
+    "test_process_wrong_version"
+   ],
+   "tests": 6
+  }
+ },
+ "mutant_rounds_log": [
+  {
+   "round": 0,
+   "module": "lin",
+   "train_mutants": 15,
+   "survived": 10
+  },
+  {
+   "round": 0,
+   "module": "bldc",
+   "train_mutants": 32,
+   "survived": 18
+  },
+  {
+   "round": 0,
+   "module": "led",
+   "train_mutants": 10,
+   "survived": 3
+  },
+  {
+   "round": 0,
+   "module": "cmd",
+   "train_mutants": 44,
+   "survived": 40
+  },
+  {
+   "round": 1,
+   "module": "lin",
+   "train_mutants": 15,
+   "survived": 10
+  },
+  {
+   "round": 1,
+   "module": "bldc",
+   "train_mutants": 32,
+   "survived": 18
+  },
+  {
+   "round": 1,
+   "module": "led",
+   "train_mutants": 10,
+   "survived": 3
+  },
+  {
+   "round": 1,
+   "module": "cmd",
+   "train_mutants": 44,
+   "survived": 40
+  }
+ ],
+ "mutant_cleanup": {
+  "lin": {
+   "built": true,
+   "removed": [],
+   "tests": 3
+  },
+  "bldc": {
+   "built": true,
+   "removed": [],
+   "tests": 16
+  },
+  "led": {
+   "built": true,
+   "removed": [],
+   "tests": 22
+  },
+  "cmd": {
+   "built": true,
+   "removed": [],
+   "tests": 6
+  }
+ },
+ "llm_calls": 45,
+ "output_tokens": 126787,
+ "llm_seconds": 2335.0,
+ "wall_seconds_agent": 3274.8,
+ "scores": {
+  "single": {
+   "all": 0.2474,
+   "heldout": 0.2688,
+   "heldout_killed": 25,
+   "heldout_n": 93,
+   "killed_ids": [
+    "bldc-001",
+    "bldc-002",
+    "bldc-003",
+    "bldc-004",
+    "bldc-005",
+    "bldc-006",
+    "bldc-007",
+    "bldc-008",
+    "bldc-009",
+    "bldc-010",
+    "bldc-011",
+    "bldc-012",
+    "bldc-013",
+    "bldc-014",
+    "bldc-015",
+    "bldc-016",
+    "bldc-017",
+    "bldc-018",
+    "bldc-019",
+    "bldc-021",
+    "bldc-023",
+    "bldc-024",
+    "bldc-044",
+    "bldc-052",
+    "bldc-055",
+    "bldc-059",
+    "bldc-060",
+    "cmd-099",
+    "cmd-100",
+    "cmd-101",
+    "cmd-106",
+    "cmd-107",
+    "led-134",
+    "led-135",
+    "led-137",
+    "led-139",
+    "led-141",
+    "led-142",
+    "led-146",
+    "led-157",
+    "lin-175",
+    "lin-178",
+    "lin-180",
+    "lin-183",
+    "lin-184",
+    "lin-185",
+    "lin-186",
+    "lin-188"
+   ]
+  },
+  "loop": {
+   "all": 0.366,
+   "heldout": 0.4409,
+   "heldout_killed": 41,
+   "heldout_n": 93,
+   "killed_ids": [
+    "bldc-001",
+    "bldc-002",
+    "bldc-003",
+    "bldc-004",
+    "bldc-005",
+    "bldc-006",
+    "bldc-007",
+    "bldc-008",
+    "bldc-009",
+    "bldc-010",
+    "bldc-011",
+    "bldc-012",
+    "bldc-013",
+    "bldc-014",
+    "bldc-015",
+    "bldc-016",
+    "bldc-017",
+    "bldc-018",
+    "bldc-019",
+    "bldc-021",
+    "bldc-023",
+    "bldc-024",
+    "bldc-044",
+    "bldc-052",
+    "bldc-055",
+    "bldc-059",
+    "bldc-060",
+    "cmd-099",
+    "cmd-100",
+    "cmd-101",
+    "cmd-106",
+    "cmd-107",
+    "led-134",
+    "led-135",
+    "led-136",
+    "led-137",
+    "led-139",
+    "led-140",
+    "led-141",
+    "led-142",
+    "led-143",
+    "led-144",
+    "led-145",
+    "led-146",
+    "led-147",
+    "led-148",
+    "led-149",
+    "led-150",
+    "led-151",
+    "led-152",
+    "led-153",
+    "led-154",
+    "led-155",
+    "led-156",
+    "led-157",
+    "lin-175",
+    "lin-176",
+    "lin-178",
+    "lin-179",
+    "lin-180",
+    "lin-181",
+    "lin-183",
+    "lin-184",
+    "lin-185",
+    "lin-186",
+    "lin-187",
+    "lin-188",
+    "lin-190",
+    "lin-191",
+    "lin-192",
+    "lin-193"
+   ]
+  },
+  "mutant": {
+   "all": 0.366,
+   "heldout": 0.4409,
+   "heldout_killed": 41,
+   "heldout_n": 93,
+   "killed_ids": [
+    "bldc-001",
+    "bldc-002",
+    "bldc-003",
+    "bldc-004",
+    "bldc-005",
+    "bldc-006",
+    "bldc-007",
+    "bldc-008",
+    "bldc-009",
+    "bldc-010",
+    "bldc-011",
+    "bldc-012",
+    "bldc-013",
+    "bldc-014",
+    "bldc-015",
+    "bldc-016",
+    "bldc-017",
+    "bldc-018",
+    "bldc-019",
+    "bldc-021",
+    "bldc-023",
+    "bldc-024",
+    "bldc-044",
+    "bldc-052",
+    "bldc-055",
+    "bldc-059",
+    "bldc-060",
+    "cmd-099",
+    "cmd-100",
+    "cmd-101",
+    "cmd-106",
+    "cmd-107",
+    "led-134",
+    "led-135",
+    "led-136",
+    "led-137",
+    "led-139",
+    "led-140",
+    "led-141",
+    "led-142",
+    "led-143",
+    "led-144",
+    "led-145",
+    "led-146",
+    "led-147",
+    "led-148",
+    "led-149",
+    "led-150",
+    "led-151",
+    "led-152",
+    "led-153",
+    "led-154",
+    "led-155",
+    "led-156",
+    "led-157",
+    "lin-175",
+    "lin-176",
+    "lin-178",
+    "lin-179",
+    "lin-180",
+    "lin-181",
+    "lin-183",
+    "lin-184",
+    "lin-185",
+    "lin-186",
+    "lin-187",
+    "lin-188",
+    "lin-190",
+    "lin-191",
+    "lin-192",
+    "lin-193"
+   ]
+  }
+ }
+}

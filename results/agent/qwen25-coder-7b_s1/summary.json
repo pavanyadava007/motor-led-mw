@@ -1,0 +1,402 @@
+{
+ "model": "qwen2.5-coder:7b",
+ "seed": 1,
+ "temperature": 0.2,
+ "fix_iters": 4,
+ "mutant_rounds": 2,
+ "train_mutants": 101,
+ "heldout_mutants": 93,
+ "single_first_try": {
+  "lin": {
+   "built": false,
+   "passed": 0,
+   "failed": 0
+  },
+  "bldc": {
+   "built": true,
+   "passed": 6,
+   "failed": 3
+  },
+  "led": {
+   "built": false,
+   "passed": 0,
+   "failed": 0
+  },
+  "cmd": {
+   "built": true,
+   "passed": 2,
+   "failed": 10
+  }
+ },
+ "single_cleanup": {
+  "lin": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "bldc": {
+   "built": true,
+   "removed": [
+    "test_fault_update",
+    "test_pi_step",
+    "test_speed_rpm"
+   ],
+   "tests": 6
+  },
+  "led": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "cmd": {
+   "built": true,
+   "removed": [
+    "test_process_invalid_argument",
+    "test_process_invalid_payload_length",
+    "test_process_invalid_tag",
+    "test_process_invalid_version",
+    "test_process_replay_attack",
+    "test_process_unknown_command",
+    "test_process_valid_clear_fault_command",
+    "test_process_valid_frame",
+    "test_process_valid_set_led_command",
+    "test_process_valid_stop_command"
+   ],
+   "tests": 2
+  }
+ },
+ "loop_trace": {
+  "lin": [
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   }
+  ],
+  "bldc": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 6,
+    "failed": 3
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 5,
+    "failed": 3
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 5,
+    "failed": 3
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 5,
+    "failed": 3
+   }
+  ],
+  "led": [
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 6
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 6
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 6
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 6
+   }
+  ],
+  "cmd": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 2,
+    "failed": 10
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 2,
+    "failed": 10
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 2,
+    "failed": 10
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 2,
+    "failed": 10
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 2,
+    "failed": 10
+   }
+  ]
+ },
+ "loop_cleanup": {
+  "lin": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "bldc": {
+   "built": true,
+   "removed": [
+    "test_fault_update",
+    "test_pi_step",
+    "test_speed_rpm"
+   ],
+   "tests": 6
+  },
+  "led": {
+   "built": true,
+   "removed": [
+    "test_mlmw_derate_q15_between",
+    "test_mlmw_derate_q15_equal_start_max",
+    "test_mlmw_gamma",
+    "test_mlmw_led_mix_above_max",
+    "test_mlmw_led_mix_below_start",
+    "test_mlmw_led_mix_normal"
+   ],
+   "tests": 3
+  },
+  "cmd": {
+   "built": true,
+   "removed": [
+    "test_process_invalid_argument",
+    "test_process_invalid_payload_length",
+    "test_process_invalid_tag",
+    "test_process_invalid_version",
+    "test_process_replay_attack",
+    "test_process_unknown_command",
+    "test_process_valid_clear_fault_command",
+    "test_process_valid_frame",
+    "test_process_valid_set_led_command",
+    "test_process_valid_stop_command"
+   ],
+   "tests": 2
+  }
+ },
+ "mutant_rounds_log": [
+  {
+   "round": 0,
+   "module": "bldc",
+   "train_mutants": 32,
+   "survived": 22
+  },
+  {
+   "round": 0,
+   "module": "led",
+   "train_mutants": 10,
+   "survived": 9
+  },
+  {
+   "round": 0,
+   "module": "cmd",
+   "train_mutants": 44,
+   "survived": 44
+  },
+  {
+   "round": 1,
+   "module": "bldc",
+   "train_mutants": 32,
+   "survived": 22
+  },
+  {
+   "round": 1,
+   "module": "led",
+   "train_mutants": 10,
+   "survived": 9
+  },
+  {
+   "round": 1,
+   "module": "cmd",
+   "train_mutants": 44,
+   "survived": 44
+  }
+ ],
+ "mutant_cleanup": {
+  "lin": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "bldc": {
+   "built": true,
+   "removed": [],
+   "tests": 6
+  },
+  "led": {
+   "built": true,
+   "removed": [],
+   "tests": 3
+  },
+  "cmd": {
+   "built": true,
+   "removed": [],
+   "tests": 2
+  }
+ },
+ "llm_calls": 50,
+ "output_tokens": 141423,
+ "llm_seconds": 3402.7,
+ "wall_seconds_agent": 4186.9,
+ "scores": {
+  "single": {
+   "all": 0.1134,
+   "heldout": 0.129,
+   "heldout_killed": 12,
+   "heldout_n": 93,
+   "killed_ids": [
+    "bldc-001",
+    "bldc-002",
+    "bldc-003",
+    "bldc-004",
+    "bldc-005",
+    "bldc-006",
+    "bldc-007",
+    "bldc-008",
+    "bldc-009",
+    "bldc-010",
+    "bldc-011",
+    "bldc-012",
+    "bldc-013",
+    "bldc-014",
+    "bldc-015",
+    "bldc-016",
+    "bldc-017",
+    "bldc-018",
+    "bldc-019",
+    "bldc-021",
+    "bldc-023",
+    "bldc-024"
+   ]
+  },
+  "loop": {
+   "all": 0.1237,
+   "heldout": 0.1398,
+   "heldout_killed": 13,
+   "heldout_n": 93,
+   "killed_ids": [
+    "bldc-001",
+    "bldc-002",
+    "bldc-003",
+    "bldc-004",
+    "bldc-005",
+    "bldc-006",
+    "bldc-007",
+    "bldc-008",
+    "bldc-009",
+    "bldc-010",
+    "bldc-011",
+    "bldc-012",
+    "bldc-013",
+    "bldc-014",
+    "bldc-015",
+    "bldc-016",
+    "bldc-017",
+    "bldc-018",
+    "bldc-019",
+    "bldc-021",
+    "bldc-023",
+    "bldc-024",
+    "led-134",
+    "led-135"
+   ]
+  },
+  "mutant": {
+   "all": 0.1237,
+   "heldout": 0.1398,
+   "heldout_killed": 13,
+   "heldout_n": 93,
+   "killed_ids": [
+    "bldc-001",
+    "bldc-002",
+    "bldc-003",
+    "bldc-004",
+    "bldc-005",
+    "bldc-006",
+    "bldc-007",
+    "bldc-008",
+    "bldc-009",
+    "bldc-010",
+    "bldc-011",
+    "bldc-012",
+    "bldc-013",
+    "bldc-014",
+    "bldc-015",
+    "bldc-016",
+    "bldc-017",
+    "bldc-018",
+    "bldc-019",
+    "bldc-021",
+    "bldc-023",
+    "bldc-024",
+    "led-134",
+    "led-135"
+   ]
+  }
+ }
+}

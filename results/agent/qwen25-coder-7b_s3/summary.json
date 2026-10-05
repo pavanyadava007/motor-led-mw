@@ -1,0 +1,254 @@
+{
+ "model": "qwen2.5-coder:7b",
+ "seed": 3,
+ "temperature": 0.2,
+ "fix_iters": 4,
+ "mutant_rounds": 2,
+ "train_mutants": 101,
+ "heldout_mutants": 93,
+ "single_first_try": {
+  "lin": {
+   "built": false,
+   "passed": 0,
+   "failed": 0
+  },
+  "bldc": {
+   "built": false,
+   "passed": 0,
+   "failed": 0
+  },
+  "led": {
+   "built": false,
+   "passed": 0,
+   "failed": 0
+  },
+  "cmd": {
+   "built": false,
+   "passed": 0,
+   "failed": 0
+  }
+ },
+ "single_cleanup": {
+  "lin": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "bldc": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "led": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "cmd": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  }
+ },
+ "loop_trace": {
+  "lin": [
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   }
+  ],
+  "bldc": [
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   }
+  ],
+  "led": [
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   }
+  ],
+  "cmd": [
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   }
+  ]
+ },
+ "loop_cleanup": {
+  "lin": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "bldc": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "led": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "cmd": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  }
+ },
+ "mutant_cleanup": {
+  "lin": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "bldc": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "led": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "cmd": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  }
+ },
+ "llm_calls": 20,
+ "output_tokens": 47907,
+ "llm_seconds": 1076.0,
+ "wall_seconds_agent": 1306.2,
+ "scores": {
+  "single": {
+   "all": 0.0,
+   "heldout": 0.0,
+   "heldout_killed": 0,
+   "heldout_n": 93,
+   "killed_ids": []
+  },
+  "loop": {
+   "all": 0.0,
+   "heldout": 0.0,
+   "heldout_killed": 0,
+   "heldout_n": 93,
+   "killed_ids": []
+  },
+  "mutant": {
+   "all": 0.0,
+   "heldout": 0.0,
+   "heldout_killed": 0,
+   "heldout_n": 93,
+   "killed_ids": []
+  }
+ }
+}

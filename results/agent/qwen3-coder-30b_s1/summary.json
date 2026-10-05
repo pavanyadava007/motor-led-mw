@@ -1,0 +1,593 @@
+{
+ "model": "qwen3-coder:30b",
+ "seed": 1,
+ "temperature": 0.2,
+ "fix_iters": 4,
+ "mutant_rounds": 2,
+ "train_mutants": 101,
+ "heldout_mutants": 93,
+ "single_first_try": {
+  "lin": {
+   "built": true,
+   "passed": 3,
+   "failed": 8
+  },
+  "bldc": {
+   "built": true,
+   "passed": 15,
+   "failed": 5
+  },
+  "led": {
+   "built": true,
+   "passed": 8,
+   "failed": 9
+  },
+  "cmd": {
+   "built": true,
+   "passed": 8,
+   "failed": 13
+  }
+ },
+ "single_cleanup": {
+  "lin": {
+   "built": true,
+   "removed": [
+    "test_checksum_carry_wrap",
+    "test_checksum_enhanced",
+    "test_checksum_enhanced_with_pid",
+    "test_checksum_zero_data",
+    "test_pid_basic",
+    "test_pid_boundary_values",
+    "test_pid_parity_calculation",
+    "test_pid_valid_boundary"
+   ],
+   "tests": 3
+  },
+  "bldc": {
+   "built": true,
+   "removed": [
+    "test_fault_update_overcurrent",
+    "test_pi_step_integration",
+    "test_pi_step_normal",
+    "test_ramp_move_by_max_step",
+    "test_speed_rpm_normal"
+   ],
+   "tests": 15
+  },
+  "led": {
+   "built": true,
+   "removed": [
+    "test_derate_q15_invalid_range",
+    "test_derate_q15_normal",
+    "test_gamma_boundary_values",
+    "test_gamma_mid",
+    "test_led_mix_all_channels_different",
+    "test_led_mix_full_brightness",
+    "test_led_mix_with_derate",
+    "test_led_mix_with_gain",
+    "test_led_mix_with_gamma"
+   ],
+   "tests": 8
+  },
+  "cmd": {
+   "built": true,
+   "removed": [
+    "test_process_clear_fault_wrong_length",
+    "test_process_no_handlers",
+    "test_process_replay_attack",
+    "test_process_sequence_number_increases",
+    "test_process_sequence_number_zero",
+    "test_process_set_led",
+    "test_process_set_led_wrong_length",
+    "test_process_set_speed",
+    "test_process_set_speed_out_of_range",
+    "test_process_set_speed_wrong_length",
+    "test_process_stop_wrong_length",
+    "test_process_wrong_mac",
+    "test_process_wrong_version"
+   ],
+   "tests": 8
+  }
+ },
+ "loop_trace": {
+  "lin": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 8
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 5,
+    "failed": 6
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 5,
+    "failed": 6
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 5,
+    "failed": 4
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 5,
+    "failed": 4
+   }
+  ],
+  "bldc": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 15,
+    "failed": 5
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 15,
+    "failed": 1
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 15,
+    "failed": 0
+   }
+  ],
+  "led": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 8,
+    "failed": 9
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 9,
+    "failed": 4
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 9,
+    "failed": 4
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 9,
+    "failed": 4
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 9,
+    "failed": 4
+   }
+  ],
+  "cmd": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 8,
+    "failed": 13
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 8,
+    "failed": 13
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 8,
+    "failed": 12
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 8,
+    "failed": 12
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 8,
+    "failed": 12
+   }
+  ]
+ },
+ "loop_cleanup": {
+  "lin": {
+   "built": true,
+   "removed": [
+    "test_pid_basic",
+    "test_pid_boundary_values",
+    "test_pid_parity_calculation",
+    "test_pid_valid_boundary"
+   ],
+   "tests": 5
+  },
+  "bldc": {
+   "built": true,
+   "removed": [],
+   "tests": 15
+  },
+  "led": {
+   "built": true,
+   "removed": [
+    "test_derate_q15_invalid_range",
+    "test_led_mix_one_channel",
+    "test_led_mix_temperature_derate",
+    "test_led_mix_with_calibration"
+   ],
+   "tests": 9
+  },
+  "cmd": {
+   "built": true,
+   "removed": [
+    "test_process_clear_fault_wrong_length",
+    "test_process_no_handlers",
+    "test_process_replay_attack",
+    "test_process_sequence_number_increases",
+    "test_process_sequence_number_zero",
+    "test_process_set_led_wrong_length",
+    "test_process_set_speed",
+    "test_process_set_speed_out_of_range",
+    "test_process_set_speed_wrong_length",
+    "test_process_stop_wrong_length",
+    "test_process_wrong_mac",
+    "test_process_wrong_version"
+   ],
+   "tests": 8
+  }
+ },
+ "mutant_rounds_log": [
+  {
+   "round": 0,
+   "module": "lin",
+   "train_mutants": 15,
+   "survived": 9
+  },
+  {
+   "round": 0,
+   "module": "bldc",
+   "train_mutants": 32,
+   "survived": 14
+  },
+  {
+   "round": 0,
+   "module": "led",
+   "train_mutants": 10,
+   "survived": 8
+  },
+  {
+   "round": 0,
+   "module": "cmd",
+   "train_mutants": 44,
+   "survived": 34
+  },
+  {
+   "round": 1,
+   "module": "lin",
+   "train_mutants": 15,
+   "survived": 9
+  },
+  {
+   "round": 1,
+   "module": "bldc",
+   "train_mutants": 32,
+   "survived": 11
+  },
+  {
+   "round": 1,
+   "module": "led",
+   "train_mutants": 10,
+   "survived": 8
+  },
+  {
+   "round": 1,
+   "module": "cmd",
+   "train_mutants": 44,
+   "survived": 34
+  }
+ ],
+ "mutant_cleanup": {
+  "lin": {
+   "built": true,
+   "removed": [],
+   "tests": 5
+  },
+  "bldc": {
+   "built": true,
+   "removed": [],
+   "tests": 22
+  },
+  "led": {
+   "built": true,
+   "removed": [],
+   "tests": 9
+  },
+  "cmd": {
+   "built": true,
+   "removed": [],
+   "tests": 8
+  }
+ },
+ "llm_calls": 58,
+ "output_tokens": 177222,
+ "llm_seconds": 3314.9,
+ "wall_seconds_agent": 4305.5,
+ "scores": {
+  "single": {
+   "all": 0.3866,
+   "heldout": 0.4301,
+   "heldout_killed": 40,
+   "heldout_n": 93,
+   "killed_ids": [
+    "bldc-001",
+    "bldc-002",
+    "bldc-003",
+    "bldc-004",
+    "bldc-005",
+    "bldc-006",
+    "bldc-007",
+    "bldc-008",
+    "bldc-009",
+    "bldc-010",
+    "bldc-011",
+    "bldc-012",
+    "bldc-013",
+    "bldc-014",
+    "bldc-015",
+    "bldc-016",
+    "bldc-017",
+    "bldc-018",
+    "bldc-019",
+    "bldc-021",
+    "bldc-023",
+    "bldc-024",
+    "bldc-026",
+    "bldc-028",
+    "bldc-029",
+    "bldc-031",
+    "bldc-033",
+    "bldc-036",
+    "bldc-041",
+    "bldc-042",
+    "bldc-043",
+    "bldc-044",
+    "bldc-052",
+    "bldc-055",
+    "bldc-059",
+    "bldc-060",
+    "cmd-078",
+    "cmd-079",
+    "cmd-081",
+    "cmd-094",
+    "cmd-095",
+    "cmd-097",
+    "cmd-098",
+    "cmd-100",
+    "cmd-102",
+    "cmd-104",
+    "cmd-106",
+    "cmd-107",
+    "cmd-109",
+    "cmd-110",
+    "cmd-111",
+    "cmd-112",
+    "cmd-116",
+    "cmd-117",
+    "cmd-132",
+    "cmd-133",
+    "led-134",
+    "led-135",
+    "led-136",
+    "led-137",
+    "led-139",
+    "led-141",
+    "led-142",
+    "led-146",
+    "led-157",
+    "lin-173",
+    "lin-174",
+    "lin-175",
+    "lin-178",
+    "lin-180",
+    "lin-183",
+    "lin-184",
+    "lin-185",
+    "lin-186",
+    "lin-188"
+   ]
+  },
+  "loop": {
+   "all": 0.4072,
+   "heldout": 0.4624,
+   "heldout_killed": 43,
+   "heldout_n": 93,
+   "killed_ids": [
+    "bldc-001",
+    "bldc-002",
+    "bldc-003",
+    "bldc-004",
+    "bldc-005",
+    "bldc-006",
+    "bldc-007",
+    "bldc-008",
+    "bldc-009",
+    "bldc-010",
+    "bldc-011",
+    "bldc-012",
+    "bldc-013",
+    "bldc-014",
+    "bldc-015",
+    "bldc-016",
+    "bldc-017",
+    "bldc-018",
+    "bldc-019",
+    "bldc-021",
+    "bldc-023",
+    "bldc-024",
+    "bldc-026",
+    "bldc-028",
+    "bldc-029",
+    "bldc-031",
+    "bldc-033",
+    "bldc-036",
+    "bldc-041",
+    "bldc-042",
+    "bldc-043",
+    "bldc-044",
+    "bldc-052",
+    "bldc-055",
+    "bldc-059",
+    "bldc-060",
+    "cmd-078",
+    "cmd-079",
+    "cmd-081",
+    "cmd-094",
+    "cmd-095",
+    "cmd-097",
+    "cmd-098",
+    "cmd-100",
+    "cmd-102",
+    "cmd-104",
+    "cmd-106",
+    "cmd-107",
+    "cmd-109",
+    "cmd-110",
+    "cmd-111",
+    "cmd-112",
+    "cmd-116",
+    "cmd-117",
+    "cmd-132",
+    "cmd-133",
+    "led-134",
+    "led-135",
+    "led-136",
+    "led-137",
+    "led-139",
+    "led-141",
+    "led-142",
+    "led-146",
+    "led-157",
+    "lin-173",
+    "lin-174",
+    "lin-175",
+    "lin-176",
+    "lin-178",
+    "lin-179",
+    "lin-180",
+    "lin-181",
+    "lin-182",
+    "lin-183",
+    "lin-184",
+    "lin-185",
+    "lin-186",
+    "lin-188"
+   ]
+  },
+  "mutant": {
+   "all": 0.4227,
+   "heldout": 0.4624,
+   "heldout_killed": 43,
+   "heldout_n": 93,
+   "killed_ids": [
+    "bldc-001",
+    "bldc-002",
+    "bldc-003",
+    "bldc-004",
+    "bldc-005",
+    "bldc-006",
+    "bldc-007",
+    "bldc-008",
+    "bldc-009",
+    "bldc-010",
+    "bldc-011",
+    "bldc-012",
+    "bldc-013",
+    "bldc-014",
+    "bldc-015",
+    "bldc-016",
+    "bldc-017",
+    "bldc-018",
+    "bldc-019",
+    "bldc-021",
+    "bldc-023",
+    "bldc-024",
+    "bldc-026",
+    "bldc-028",
+    "bldc-029",
+    "bldc-030",
+    "bldc-031",
+    "bldc-032",
+    "bldc-033",
+    "bldc-034",
+    "bldc-036",
+    "bldc-041",
+    "bldc-042",
+    "bldc-043",
+    "bldc-044",
+    "bldc-052",
+    "bldc-055",
+    "bldc-059",
+    "bldc-060",
+    "cmd-078",
+    "cmd-079",
+    "cmd-081",
+    "cmd-094",
+    "cmd-095",
+    "cmd-097",
+    "cmd-098",
+    "cmd-100",
+    "cmd-102",
+    "cmd-104",
+    "cmd-106",
+    "cmd-107",
+    "cmd-109",
+    "cmd-110",
+    "cmd-111",
+    "cmd-112",
+    "cmd-116",
+    "cmd-117",
+    "cmd-132",
+    "cmd-133",
+    "led-134",
+    "led-135",
+    "led-136",
+    "led-137",
+    "led-139",
+    "led-141",
+    "led-142",
+    "led-146",
+    "led-157",
+    "lin-173",
+    "lin-174",
+    "lin-175",
+    "lin-176",
+    "lin-178",
+    "lin-179",
+    "lin-180",
+    "lin-181",
+    "lin-182",
+    "lin-183",
+    "lin-184",
+    "lin-185",
+    "lin-186",
+    "lin-188"
+   ]
+  }
+ }
+}

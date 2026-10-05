@@ -1,0 +1,345 @@
+[
+ {
+  "module": "lin",
+  "stage": "single",
+  "prompt_tokens": 949,
+  "output_tokens": 2681,
+  "seconds": 32.737125131
+ },
+ {
+  "module": "bldc",
+  "stage": "single",
+  "prompt_tokens": 2299,
+  "output_tokens": 2434,
+  "seconds": 32.413787381
+ },
+ {
+  "module": "led",
+  "stage": "single",
+  "prompt_tokens": 1212,
+  "output_tokens": 1994,
+  "seconds": 25.004727281
+ },
+ {
+  "module": "cmd",
+  "stage": "single",
+  "prompt_tokens": 1787,
+  "output_tokens": 3239,
+  "seconds": 42.876536555
+ },
+ {
+  "module": "lin",
+  "stage": "loop",
+  "prompt_tokens": 4585,
+  "output_tokens": 2526,
+  "seconds": 36.648011713
+ },
+ {
+  "module": "lin",
+  "stage": "loop",
+  "prompt_tokens": 8065,
+  "output_tokens": 2523,
+  "seconds": 36.970145142
+ },
+ {
+  "module": "lin",
+  "stage": "loop",
+  "prompt_tokens": 11542,
+  "output_tokens": 2454,
+  "seconds": 39.417196251
+ },
+ {
+  "module": "lin",
+  "stage": "loop",
+  "prompt_tokens": 14834,
+  "output_tokens": 2450,
+  "seconds": 42.29940027
+ },
+ {
+  "module": "bldc",
+  "stage": "loop",
+  "prompt_tokens": 5973,
+  "output_tokens": 1659,
+  "seconds": 25.964144234
+ },
+ {
+  "module": "bldc",
+  "stage": "loop",
+  "prompt_tokens": 8174,
+  "output_tokens": 1428,
+  "seconds": 20.788718838
+ },
+ {
+  "module": "bldc",
+  "stage": "loop",
+  "prompt_tokens": 9872,
+  "output_tokens": 1286,
+  "seconds": 19.405013564
+ },
+ {
+  "module": "led",
+  "stage": "loop",
+  "prompt_tokens": 4263,
+  "output_tokens": 1559,
+  "seconds": 23.031963092
+ },
+ {
+  "module": "led",
+  "stage": "loop",
+  "prompt_tokens": 6370,
+  "output_tokens": 754,
+  "seconds": 11.617036901
+ },
+ {
+  "module": "cmd",
+  "stage": "loop",
+  "prompt_tokens": 6073,
+  "output_tokens": 3239,
+  "seconds": 48.666610253
+ },
+ {
+  "module": "cmd",
+  "stage": "loop",
+  "prompt_tokens": 10359,
+  "output_tokens": 3112,
+  "seconds": 49.244052471
+ },
+ {
+  "module": "cmd",
+  "stage": "loop",
+  "prompt_tokens": 14803,
+  "output_tokens": 2560,
+  "seconds": 44.837168732
+ },
+ {
+  "module": "cmd",
+  "stage": "loop",
+  "prompt_tokens": 13863,
+  "output_tokens": 2560,
+  "seconds": 51.849459887
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 14733,
+  "output_tokens": 3680,
+  "seconds": 71.552519493
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 16349,
+  "output_tokens": 2065,
+  "seconds": 45.949292806
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 15903,
+  "output_tokens": 1933,
+  "seconds": 43.500747755
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 15394,
+  "output_tokens": 1933,
+  "seconds": 43.341569139
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 15005,
+  "output_tokens": 1033,
+  "seconds": 27.446242685
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 11764,
+  "output_tokens": 2874,
+  "seconds": 47.334836918
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 15954,
+  "output_tokens": 1428,
+  "seconds": 25.385322021
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 15699,
+  "output_tokens": 1286,
+  "seconds": 31.721408607
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 7662,
+  "output_tokens": 2238,
+  "seconds": 36.785471986
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 10574,
+  "output_tokens": 1525,
+  "seconds": 23.793952934
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 15995,
+  "output_tokens": 3092,
+  "seconds": 63.283400423
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 16144,
+  "output_tokens": 2560,
+  "seconds": 54.143180734
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 15444,
+  "output_tokens": 2569,
+  "seconds": 54.037335963
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 15453,
+  "output_tokens": 2569,
+  "seconds": 54.564009566
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 16031,
+  "output_tokens": 2569,
+  "seconds": 55.172221613
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 16042,
+  "output_tokens": 6144,
+  "seconds": 115.824670491
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 16359,
+  "output_tokens": 6144,
+  "seconds": 117.242372368
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 15927,
+  "output_tokens": 6144,
+  "seconds": 117.567665858
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 15122,
+  "output_tokens": 6144,
+  "seconds": 116.745914691
+ },
+ {
+  "module": "lin",
+  "stage": "mutant",
+  "prompt_tokens": 16279,
+  "output_tokens": 6144,
+  "seconds": 118.159195279
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 15153,
+  "output_tokens": 6144,
+  "seconds": 115.07793623
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 16111,
+  "output_tokens": 6144,
+  "seconds": 116.577894874
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 15872,
+  "output_tokens": 6144,
+  "seconds": 117.020033398
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 15381,
+  "output_tokens": 6144,
+  "seconds": 116.678099577
+ },
+ {
+  "module": "bldc",
+  "stage": "mutant",
+  "prompt_tokens": 15362,
+  "output_tokens": 6144,
+  "seconds": 116.680741912
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 12399,
+  "output_tokens": 2261,
+  "seconds": 44.381772731
+ },
+ {
+  "module": "led",
+  "stage": "mutant",
+  "prompt_tokens": 15221,
+  "output_tokens": 1527,
+  "seconds": 26.225540801
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 16119,
+  "output_tokens": 3298,
+  "seconds": 67.136444776
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 15706,
+  "output_tokens": 2569,
+  "seconds": 54.423536987
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 15706,
+  "output_tokens": 2569,
+  "seconds": 54.282001074
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 15706,
+  "output_tokens": 2569,
+  "seconds": 55.184204714
+ },
+ {
+  "module": "cmd",
+  "stage": "mutant",
+  "prompt_tokens": 16275,
+  "output_tokens": 2569,
+  "seconds": 55.840227632
+ }
+]

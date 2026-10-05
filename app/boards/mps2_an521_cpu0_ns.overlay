@@ -1,0 +1,11 @@
+/* Entropy for the network stack comes from PSA Crypto in TF-M (secure world). */
+/ {
+	chosen {
+		zephyr,entropy = &psa_rng;
+	};
+
+	psa_rng: psa-rng {
+		compatible = "zephyr,psa-crypto-rng";
+		status = "okay";
+	};
+};

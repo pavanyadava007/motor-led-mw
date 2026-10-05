@@ -1,0 +1,6 @@
+#!/bin/sh
+# Runs qemu-system-arm from the zqemu:8.2 container (make qemu-image). The repo and the
+# Zephyr workspace are mounted at the same paths, so west's build paths still work.
+R=$(cd "$(dirname "$0")/../.." && pwd)
+exec docker run --rm -i --network none -v "$R:$R" -v "${ZEPHYR_WS:-$HOME/workspace/zephyr-ws}:${ZEPHYR_WS:-$HOME/workspace/zephyr-ws}" \
+  -w "$PWD" zqemu:8.2 qemu-system-arm "$@"

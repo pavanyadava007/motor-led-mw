@@ -1,0 +1,1593 @@
+{
+ "suite": "ref",
+ "mutants": 194,
+ "killed": 149,
+ "score": 0.768,
+ "by_reason": {
+  "fail": 147,
+  "timeout": 2,
+  "build": 0,
+  "survived": 45
+ },
+ "seconds": 162.9,
+ "rows": [
+  {
+   "id": "bldc-000",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-012",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-024",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_commutation_forward",
+    "test_commutation_one_high_one_low"
+   ]
+  },
+  {
+   "id": "bldc-036",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_integrates"
+   ]
+  },
+  {
+   "id": "bldc-048",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_fault_overcurrent_debounce"
+   ]
+  },
+  {
+   "id": "bldc-060",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_fault_stall"
+   ]
+  },
+  {
+   "id": "cmd-072",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_speed_limit"
+   ]
+  },
+  {
+   "id": "cmd-084",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led"
+   ]
+  },
+  {
+   "id": "cmd-096",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-108",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit"
+   ]
+  },
+  {
+   "id": "cmd-120",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-132",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay",
+    "test_set_led",
+    "test_set_speed"
+   ]
+  },
+  {
+   "id": "led-144",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_full_white"
+   ]
+  },
+  {
+   "id": "led-156",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_hot_is_dimmer"
+   ]
+  },
+  {
+   "id": "lin-168",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pid_known_values"
+   ]
+  },
+  {
+   "id": "lin-180",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_classic"
+   ]
+  },
+  {
+   "id": "lin-192",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_classic"
+   ]
+  },
+  {
+   "id": "bldc-001",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-013",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-025",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-037",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-049",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_fault_overcurrent_debounce"
+   ]
+  },
+  {
+   "id": "cmd-061",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed"
+   ]
+  },
+  {
+   "id": "cmd-073",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-085",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-097",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-109",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_bad_tag",
+    "test_length_and_version",
+    "test_replay",
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-121",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-133",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay",
+    "test_set_led",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "led-145",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off"
+   ]
+  },
+  {
+   "id": "led-157",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off",
+    "test_mix_hot_is_dimmer"
+   ]
+  },
+  {
+   "id": "lin-169",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "lin-181",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_enhanced_includes_pid"
+   ]
+  },
+  {
+   "id": "lin-193",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_classic"
+   ]
+  },
+  {
+   "id": "bldc-002",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-014",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-026",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_antiwindup",
+    "test_pi_integrates",
+    "test_pi_proportional"
+   ]
+  },
+  {
+   "id": "bldc-038",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_antiwindup"
+   ]
+  },
+  {
+   "id": "bldc-050",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_fault_overcurrent_debounce"
+   ]
+  },
+  {
+   "id": "cmd-062",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed"
+   ]
+  },
+  {
+   "id": "cmd-074",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed"
+   ]
+  },
+  {
+   "id": "cmd-086",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led"
+   ]
+  },
+  {
+   "id": "cmd-098",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_bad_tag",
+    "test_length_and_version",
+    "test_replay",
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-110",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_bad_tag",
+    "test_replay",
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-122",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "led-134",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_gamma_ends",
+    "test_gamma_monotonic",
+    "test_mix_brightness_and_off",
+    "test_mix_full_white",
+    "test_mix_hot_is_dimmer"
+   ]
+  },
+  {
+   "id": "led-146",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off"
+   ]
+  },
+  {
+   "id": "led-158",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "lin-170",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pid_known_values"
+   ]
+  },
+  {
+   "id": "lin-182",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_enhanced_includes_pid"
+   ]
+  },
+  {
+   "id": "bldc-003",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-015",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-027",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-039",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-051",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_fault_overcurrent_debounce"
+   ]
+  },
+  {
+   "id": "cmd-063",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed"
+   ]
+  },
+  {
+   "id": "cmd-075",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed"
+   ]
+  },
+  {
+   "id": "cmd-087",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led"
+   ]
+  },
+  {
+   "id": "cmd-099",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-111",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_bad_tag",
+    "test_length_and_version",
+    "test_replay",
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-123",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay"
+   ]
+  },
+  {
+   "id": "led-135",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_gamma_ends",
+    "test_gamma_monotonic",
+    "test_mix_brightness_and_off",
+    "test_mix_full_white",
+    "test_mix_hot_is_dimmer"
+   ]
+  },
+  {
+   "id": "led-147",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off",
+    "test_mix_full_white",
+    "test_mix_hot_is_dimmer"
+   ]
+  },
+  {
+   "id": "led-159",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "lin-171",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pid_known_values"
+   ]
+  },
+  {
+   "id": "lin-183",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_classic",
+    "test_checksum_enhanced_includes_pid"
+   ]
+  },
+  {
+   "id": "bldc-004",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-016",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-028",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_integrates",
+    "test_pi_proportional"
+   ]
+  },
+  {
+   "id": "bldc-040",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-052",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-064",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed"
+   ]
+  },
+  {
+   "id": "cmd-076",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-088",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led"
+   ]
+  },
+  {
+   "id": "cmd-100",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_bad_tag",
+    "test_length_and_version",
+    "test_replay",
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-112",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay",
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-124",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay"
+   ]
+  },
+  {
+   "id": "led-136",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_derate"
+   ]
+  },
+  {
+   "id": "led-148",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_hot_is_dimmer"
+   ]
+  },
+  {
+   "id": "led-160",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "lin-172",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pid_known_values"
+   ]
+  },
+  {
+   "id": "lin-184",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-005",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-017",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-029",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_proportional"
+   ]
+  },
+  {
+   "id": "bldc-041",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_integrates"
+   ]
+  },
+  {
+   "id": "bldc-053",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-065",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed",
+    "test_speed_limit"
+   ]
+  },
+  {
+   "id": "cmd-077",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed"
+   ]
+  },
+  {
+   "id": "cmd-089",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led"
+   ]
+  },
+  {
+   "id": "cmd-101",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-113",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_bad_tag"
+   ]
+  },
+  {
+   "id": "cmd-125",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay"
+   ]
+  },
+  {
+   "id": "led-137",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off",
+    "test_mix_full_white"
+   ]
+  },
+  {
+   "id": "led-149",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off",
+    "test_mix_full_white"
+   ]
+  },
+  {
+   "id": "lin-161",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_diag_frames_classic",
+    "test_pid_ignores_upper_bits",
+    "test_pid_known_values"
+   ]
+  },
+  {
+   "id": "lin-173",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pid_known_values",
+    "test_pid_valid"
+   ]
+  },
+  {
+   "id": "lin-185",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_classic",
+    "test_checksum_enhanced_includes_pid"
+   ]
+  },
+  {
+   "id": "bldc-006",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-018",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-030",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_proportional"
+   ]
+  },
+  {
+   "id": "bldc-042",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_integrates"
+   ]
+  },
+  {
+   "id": "bldc-054",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_no_stall_when_stopped"
+   ]
+  },
+  {
+   "id": "cmd-066",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed"
+   ]
+  },
+  {
+   "id": "cmd-078",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay"
+   ]
+  },
+  {
+   "id": "cmd-090",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led"
+   ]
+  },
+  {
+   "id": "cmd-102",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_bad_tag",
+    "test_length_and_version",
+    "test_replay",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-114",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit"
+   ]
+  },
+  {
+   "id": "cmd-126",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay"
+   ]
+  },
+  {
+   "id": "led-138",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "led-150",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off"
+   ]
+  },
+  {
+   "id": "lin-162",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pid_known_values"
+   ]
+  },
+  {
+   "id": "lin-174",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pid_known_values"
+   ]
+  },
+  {
+   "id": "lin-186",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_classic",
+    "test_checksum_enhanced_includes_pid"
+   ]
+  },
+  {
+   "id": "bldc-007",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-019",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-031",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_integrates"
+   ]
+  },
+  {
+   "id": "bldc-043",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_integrates"
+   ]
+  },
+  {
+   "id": "bldc-055",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_fault_stall",
+    "test_no_stall_when_stopped"
+   ]
+  },
+  {
+   "id": "cmd-067",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed",
+    "test_speed_limit"
+   ]
+  },
+  {
+   "id": "cmd-079",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay"
+   ]
+  },
+  {
+   "id": "cmd-091",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led"
+   ]
+  },
+  {
+   "id": "cmd-103",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit"
+   ]
+  },
+  {
+   "id": "cmd-115",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit"
+   ]
+  },
+  {
+   "id": "cmd-127",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay"
+   ]
+  },
+  {
+   "id": "led-139",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off",
+    "test_mix_full_white"
+   ]
+  },
+  {
+   "id": "led-151",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "lin-163",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pid_known_values"
+   ]
+  },
+  {
+   "id": "lin-175",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_classic"
+   ]
+  },
+  {
+   "id": "lin-187",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-008",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-020",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-032",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_integrates"
+   ]
+  },
+  {
+   "id": "bldc-044",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_fault_overcurrent_debounce",
+    "test_fault_stall"
+   ]
+  },
+  {
+   "id": "bldc-056",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-068",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed",
+    "test_speed_limit"
+   ]
+  },
+  {
+   "id": "cmd-080",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-092",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led"
+   ]
+  },
+  {
+   "id": "cmd-104",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_bad_tag",
+    "test_length_and_version",
+    "test_replay",
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-116",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_bad_tag",
+    "test_replay",
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-128",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay"
+   ]
+  },
+  {
+   "id": "led-140",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_full_white"
+   ]
+  },
+  {
+   "id": "led-152",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off",
+    "test_mix_full_white",
+    "test_mix_hot_is_dimmer"
+   ]
+  },
+  {
+   "id": "lin-164",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "lin-176",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_diag_frames_classic"
+   ]
+  },
+  {
+   "id": "lin-188",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_classic",
+    "test_checksum_enhanced_includes_pid"
+   ]
+  },
+  {
+   "id": "bldc-009",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-021",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_commutation_one_high_one_low"
+   ]
+  },
+  {
+   "id": "bldc-033",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_integrates"
+   ]
+  },
+  {
+   "id": "bldc-045",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-057",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-069",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed",
+    "test_speed_limit"
+   ]
+  },
+  {
+   "id": "cmd-081",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay"
+   ]
+  },
+  {
+   "id": "cmd-093",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led"
+   ]
+  },
+  {
+   "id": "cmd-105",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_bad_tag",
+    "test_length_and_version",
+    "test_replay",
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-117",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay",
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-129",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "led-141",
+   "killed": true,
+   "reason": "timeout",
+   "failed_tests": []
+  },
+  {
+   "id": "led-153",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off",
+    "test_mix_hot_is_dimmer"
+   ]
+  },
+  {
+   "id": "lin-165",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pid_known_values"
+   ]
+  },
+  {
+   "id": "lin-177",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "lin-189",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-010",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-022",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-034",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_integrates"
+   ]
+  },
+  {
+   "id": "bldc-046",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_fault_overcurrent_debounce"
+   ]
+  },
+  {
+   "id": "bldc-058",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-070",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-082",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led"
+   ]
+  },
+  {
+   "id": "cmd-094",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-106",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_bad_tag",
+    "test_length_and_version",
+    "test_replay",
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-118",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-130",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay"
+   ]
+  },
+  {
+   "id": "led-142",
+   "killed": true,
+   "reason": "timeout",
+   "failed_tests": []
+  },
+  {
+   "id": "led-154",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off",
+    "test_mix_full_white"
+   ]
+  },
+  {
+   "id": "lin-166",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pid_known_values"
+   ]
+  },
+  {
+   "id": "lin-178",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_classic",
+    "test_checksum_diag_frames_classic"
+   ]
+  },
+  {
+   "id": "lin-190",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_classic"
+   ]
+  },
+  {
+   "id": "bldc-011",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_hall_sequence"
+   ]
+  },
+  {
+   "id": "bldc-023",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-035",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_pi_antiwindup"
+   ]
+  },
+  {
+   "id": "bldc-047",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "bldc-059",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_fault_stall"
+   ]
+  },
+  {
+   "id": "cmd-071",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_speed",
+    "test_speed_limit"
+   ]
+  },
+  {
+   "id": "cmd-083",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_set_led"
+   ]
+  },
+  {
+   "id": "cmd-095",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-107",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_bad_tag",
+    "test_length_and_version",
+    "test_replay",
+    "test_set_led",
+    "test_set_speed",
+    "test_speed_limit",
+    "test_unknown_command"
+   ]
+  },
+  {
+   "id": "cmd-119",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "cmd-131",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_replay"
+   ]
+  },
+  {
+   "id": "led-143",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off",
+    "test_mix_full_white"
+   ]
+  },
+  {
+   "id": "led-155",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_mix_brightness_and_off"
+   ]
+  },
+  {
+   "id": "lin-167",
+   "killed": false,
+   "reason": "survived",
+   "failed_tests": []
+  },
+  {
+   "id": "lin-179",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_diag_frames_classic",
+    "test_checksum_enhanced_includes_pid"
+   ]
+  },
+  {
+   "id": "lin-191",
+   "killed": true,
+   "reason": "fail",
+   "failed_tests": [
+    "test_checksum_classic"
+   ]
+  }
+ ]
+}

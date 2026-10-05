@@ -1,0 +1,558 @@
+{
+ "model": "qwen3-coder:30b",
+ "seed": 2,
+ "temperature": 0.2,
+ "fix_iters": 4,
+ "mutant_rounds": 2,
+ "train_mutants": 101,
+ "heldout_mutants": 93,
+ "single_first_try": {
+  "lin": {
+   "built": true,
+   "passed": 8,
+   "failed": 7
+  },
+  "bldc": {
+   "built": true,
+   "passed": 13,
+   "failed": 8
+  },
+  "led": {
+   "built": true,
+   "passed": 9,
+   "failed": 7
+  },
+  "cmd": {
+   "built": false,
+   "passed": 0,
+   "failed": 0
+  }
+ },
+ "single_cleanup": {
+  "lin": {
+   "built": true,
+   "removed": [
+    "test_checksum_empty_data",
+    "test_pid_basic",
+    "test_pid_boundary_values",
+    "test_pid_parity_calculation",
+    "test_pid_valid_invalid_pids",
+    "test_pid_valid_valid_pids",
+    "test_pid_with_high_bits"
+   ],
+   "tests": 8
+  },
+  "bldc": {
+   "built": true,
+   "removed": [
+    "test_fault_clear",
+    "test_fault_update_latched",
+    "test_fault_update_overcurrent",
+    "test_fault_update_stall",
+    "test_pi_step_anti_windup",
+    "test_pi_step_basic",
+    "test_pi_step_clamp_output",
+    "test_speed_rpm_normal"
+   ],
+   "tests": 13
+  },
+  "led": {
+   "built": true,
+   "removed": [
+    "test_derate_q15_normal",
+    "test_gamma_boundary_values",
+    "test_gamma_mid",
+    "test_led_mix_full_brightness",
+    "test_led_mix_max_duty",
+    "test_led_mix_with_gain",
+    "test_led_mix_zero_temp"
+   ],
+   "tests": 9
+  },
+  "cmd": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  }
+ },
+ "loop_trace": {
+  "lin": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 8,
+    "failed": 7
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 8,
+    "failed": 7
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 8,
+    "failed": 7
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 8,
+    "failed": 6
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 8,
+    "failed": 6
+   }
+  ],
+  "bldc": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 13,
+    "failed": 8
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 13,
+    "failed": 3
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 13,
+    "failed": 1
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 13,
+    "failed": 0
+   }
+  ],
+  "led": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 9,
+    "failed": 7
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 11,
+    "failed": 3
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 10,
+    "failed": 0
+   }
+  ],
+  "cmd": [
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 6,
+    "failed": 12
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 6,
+    "failed": 9
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 6,
+    "failed": 9
+   }
+  ]
+ },
+ "loop_cleanup": {
+  "lin": {
+   "built": true,
+   "removed": [
+    "test_pid_basic",
+    "test_pid_boundary_values",
+    "test_pid_parity_calculation",
+    "test_pid_valid_invalid_pids",
+    "test_pid_valid_valid_pids",
+    "test_pid_with_high_bits"
+   ],
+   "tests": 8
+  },
+  "bldc": {
+   "built": true,
+   "removed": [],
+   "tests": 13
+  },
+  "led": {
+   "built": true,
+   "removed": [],
+   "tests": 10
+  },
+  "cmd": {
+   "built": true,
+   "removed": [
+    "test_process_invalid_length",
+    "test_process_invalid_version",
+    "test_process_led_wrong_length",
+    "test_process_replay",
+    "test_process_set_speed",
+    "test_process_speed_out_of_range",
+    "test_process_speed_wrong_length",
+    "test_process_stop_wrong_length",
+    "test_process_unknown_command"
+   ],
+   "tests": 6
+  }
+ },
+ "mutant_rounds_log": [
+  {
+   "round": 0,
+   "module": "lin",
+   "train_mutants": 15,
+   "survived": 8
+  },
+  {
+   "round": 0,
+   "module": "bldc",
+   "train_mutants": 32,
+   "survived": 22
+  },
+  {
+   "round": 0,
+   "module": "led",
+   "train_mutants": 10,
+   "survived": 8
+  },
+  {
+   "round": 0,
+   "module": "cmd",
+   "train_mutants": 44,
+   "survived": 26
+  },
+  {
+   "round": 1,
+   "module": "lin",
+   "train_mutants": 15,
+   "survived": 8
+  },
+  {
+   "round": 1,
+   "module": "bldc",
+   "train_mutants": 32,
+   "survived": 22
+  },
+  {
+   "round": 1,
+   "module": "led",
+   "train_mutants": 10,
+   "survived": 3
+  },
+  {
+   "round": 1,
+   "module": "cmd",
+   "train_mutants": 44,
+   "survived": 26
+  }
+ ],
+ "mutant_cleanup": {
+  "lin": {
+   "built": true,
+   "removed": [],
+   "tests": 8
+  },
+  "bldc": {
+   "built": true,
+   "removed": [],
+   "tests": 13
+  },
+  "led": {
+   "built": true,
+   "removed": [],
+   "tests": 14
+  },
+  "cmd": {
+   "built": true,
+   "removed": [],
+   "tests": 6
+  }
+ },
+ "llm_calls": 49,
+ "output_tokens": 150614,
+ "llm_seconds": 2786.8,
+ "wall_seconds_agent": 3728.7,
+ "scores": {
+  "single": {
+   "all": 0.2526,
+   "heldout": 0.3226,
+   "heldout_killed": 30,
+   "heldout_n": 93,
+   "killed_ids": [
+    "bldc-001",
+    "bldc-002",
+    "bldc-003",
+    "bldc-004",
+    "bldc-005",
+    "bldc-006",
+    "bldc-007",
+    "bldc-008",
+    "bldc-009",
+    "bldc-010",
+    "bldc-011",
+    "bldc-012",
+    "bldc-013",
+    "bldc-014",
+    "bldc-015",
+    "bldc-016",
+    "bldc-017",
+    "bldc-018",
+    "bldc-019",
+    "bldc-021",
+    "bldc-023",
+    "bldc-024",
+    "bldc-052",
+    "led-134",
+    "led-135",
+    "led-137",
+    "led-139",
+    "led-141",
+    "led-142",
+    "led-146",
+    "led-157",
+    "lin-175",
+    "lin-176",
+    "lin-178",
+    "lin-179",
+    "lin-180",
+    "lin-181",
+    "lin-182",
+    "lin-183",
+    "lin-184",
+    "lin-185",
+    "lin-186",
+    "lin-187",
+    "lin-188",
+    "lin-189",
+    "lin-190",
+    "lin-191",
+    "lin-192",
+    "lin-193"
+   ]
+  },
+  "loop": {
+   "all": 0.4227,
+   "heldout": 0.4839,
+   "heldout_killed": 45,
+   "heldout_n": 93,
+   "killed_ids": [
+    "bldc-001",
+    "bldc-002",
+    "bldc-003",
+    "bldc-004",
+    "bldc-005",
+    "bldc-006",
+    "bldc-007",
+    "bldc-008",
+    "bldc-009",
+    "bldc-010",
+    "bldc-011",
+    "bldc-012",
+    "bldc-013",
+    "bldc-014",
+    "bldc-015",
+    "bldc-016",
+    "bldc-017",
+    "bldc-018",
+    "bldc-019",
+    "bldc-021",
+    "bldc-023",
+    "bldc-024",
+    "bldc-052",
+    "cmd-078",
+    "cmd-079",
+    "cmd-081",
+    "cmd-094",
+    "cmd-098",
+    "cmd-099",
+    "cmd-100",
+    "cmd-102",
+    "cmd-103",
+    "cmd-104",
+    "cmd-105",
+    "cmd-106",
+    "cmd-107",
+    "cmd-108",
+    "cmd-109",
+    "cmd-110",
+    "cmd-111",
+    "cmd-112",
+    "cmd-116",
+    "cmd-117",
+    "cmd-118",
+    "cmd-119",
+    "cmd-123",
+    "cmd-124",
+    "cmd-125",
+    "cmd-127",
+    "cmd-128",
+    "cmd-129",
+    "cmd-130",
+    "cmd-131",
+    "cmd-132",
+    "cmd-133",
+    "led-134",
+    "led-135",
+    "led-136",
+    "led-137",
+    "led-139",
+    "led-141",
+    "led-142",
+    "led-146",
+    "led-157",
+    "lin-175",
+    "lin-176",
+    "lin-178",
+    "lin-179",
+    "lin-180",
+    "lin-181",
+    "lin-182",
+    "lin-183",
+    "lin-184",
+    "lin-185",
+    "lin-186",
+    "lin-187",
+    "lin-188",
+    "lin-189",
+    "lin-190",
+    "lin-191",
+    "lin-192",
+    "lin-193"
+   ]
+  },
+  "mutant": {
+   "all": 0.4948,
+   "heldout": 0.5806,
+   "heldout_killed": 54,
+   "heldout_n": 93,
+   "killed_ids": [
+    "bldc-001",
+    "bldc-002",
+    "bldc-003",
+    "bldc-004",
+    "bldc-005",
+    "bldc-006",
+    "bldc-007",
+    "bldc-008",
+    "bldc-009",
+    "bldc-010",
+    "bldc-011",
+    "bldc-012",
+    "bldc-013",
+    "bldc-014",
+    "bldc-015",
+    "bldc-016",
+    "bldc-017",
+    "bldc-018",
+    "bldc-019",
+    "bldc-021",
+    "bldc-023",
+    "bldc-024",
+    "bldc-052",
+    "cmd-078",
+    "cmd-079",
+    "cmd-081",
+    "cmd-094",
+    "cmd-098",
+    "cmd-099",
+    "cmd-100",
+    "cmd-102",
+    "cmd-103",
+    "cmd-104",
+    "cmd-105",
+    "cmd-106",
+    "cmd-107",
+    "cmd-108",
+    "cmd-109",
+    "cmd-110",
+    "cmd-111",
+    "cmd-112",
+    "cmd-116",
+    "cmd-117",
+    "cmd-118",
+    "cmd-119",
+    "cmd-123",
+    "cmd-124",
+    "cmd-125",
+    "cmd-127",
+    "cmd-128",
+    "cmd-129",
+    "cmd-130",
+    "cmd-131",
+    "cmd-132",
+    "cmd-133",
+    "led-134",
+    "led-135",
+    "led-136",
+    "led-137",
+    "led-139",
+    "led-140",
+    "led-141",
+    "led-142",
+    "led-143",
+    "led-144",
+    "led-145",
+    "led-146",
+    "led-147",
+    "led-148",
+    "led-149",
+    "led-150",
+    "led-151",
+    "led-152",
+    "led-153",
+    "led-154",
+    "led-155",
+    "led-156",
+    "led-157",
+    "lin-175",
+    "lin-176",
+    "lin-178",
+    "lin-179",
+    "lin-180",
+    "lin-181",
+    "lin-182",
+    "lin-183",
+    "lin-184",
+    "lin-185",
+    "lin-186",
+    "lin-187",
+    "lin-188",
+    "lin-189",
+    "lin-190",
+    "lin-191",
+    "lin-192",
+    "lin-193"
+   ]
+  }
+ }
+}

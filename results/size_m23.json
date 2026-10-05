@@ -1,0 +1,36 @@
+{
+ "compiler": "arm-none-eabi-gcc (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 13.3.1 20240614",
+ "flags": "-mcpu=cortex-m23 -mthumb -Os -std=c99 -ffunction-sections -Wall -Wextra -Werror -fstack-usage -c",
+ "modules": {
+  "bldc": {
+   "text": 496,
+   "data": 0,
+   "bss": 0,
+   "max_stack_frame": 48
+  },
+  "cmd": {
+   "text": 252,
+   "data": 0,
+   "bss": 0,
+   "max_stack_frame": 32
+  },
+  "led": {
+   "text": 164,
+   "data": 0,
+   "bss": 0,
+   "max_stack_frame": 40
+  },
+  "lin": {
+   "text": 118,
+   "data": 0,
+   "bss": 0,
+   "max_stack_frame": 8
+  }
+ },
+ "total": {
+  "text": 1030,
+  "data": 0,
+  "bss": 0,
+  "max_stack_frame": 48
+ }
+}

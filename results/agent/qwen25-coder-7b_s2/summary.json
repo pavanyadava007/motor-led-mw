@@ -1,0 +1,426 @@
+{
+ "model": "qwen2.5-coder:7b",
+ "seed": 2,
+ "temperature": 0.2,
+ "fix_iters": 4,
+ "mutant_rounds": 2,
+ "train_mutants": 101,
+ "heldout_mutants": 93,
+ "single_first_try": {
+  "lin": {
+   "built": false,
+   "passed": 0,
+   "failed": 0
+  },
+  "bldc": {
+   "built": false,
+   "passed": 0,
+   "failed": 0
+  },
+  "led": {
+   "built": true,
+   "passed": 3,
+   "failed": 6
+  },
+  "cmd": {
+   "built": true,
+   "passed": 7,
+   "failed": 5
+  }
+ },
+ "single_cleanup": {
+  "lin": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "bldc": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "led": {
+   "built": true,
+   "removed": [
+    "test_mlmw_derate_q15_between",
+    "test_mlmw_gamma",
+    "test_mlmw_gamma_edge",
+    "test_mlmw_led_mix_above_max",
+    "test_mlmw_led_mix_below_start",
+    "test_mlmw_led_mix_normal"
+   ],
+   "tests": 3
+  },
+  "cmd": {
+   "built": true,
+   "removed": [
+    "test_cmd_process_invalid_argument",
+    "test_cmd_process_invalid_length",
+    "test_cmd_process_invalid_sequence",
+    "test_cmd_process_invalid_tag",
+    "test_cmd_process_unknown_command"
+   ],
+   "tests": 7
+  }
+ },
+ "loop_trace": {
+  "lin": [
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   }
+  ],
+  "bldc": [
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   },
+   {
+    "built": false,
+    "finished": false,
+    "passed": 0,
+    "failed": 0
+   }
+  ],
+  "led": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 6
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 6
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 6
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 6
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 3,
+    "failed": 6
+   }
+  ],
+  "cmd": [
+   {
+    "built": true,
+    "finished": true,
+    "passed": 7,
+    "failed": 5
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 7,
+    "failed": 5
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 7,
+    "failed": 5
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 7,
+    "failed": 5
+   },
+   {
+    "built": true,
+    "finished": true,
+    "passed": 7,
+    "failed": 5
+   }
+  ]
+ },
+ "loop_cleanup": {
+  "lin": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "bldc": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "led": {
+   "built": true,
+   "removed": [
+    "test_mlmw_derate_q15_between",
+    "test_mlmw_gamma",
+    "test_mlmw_gamma_edge",
+    "test_mlmw_led_mix_above_max",
+    "test_mlmw_led_mix_below_start",
+    "test_mlmw_led_mix_normal"
+   ],
+   "tests": 3
+  },
+  "cmd": {
+   "built": true,
+   "removed": [
+    "test_cmd_process_invalid_argument",
+    "test_cmd_process_invalid_length",
+    "test_cmd_process_invalid_sequence",
+    "test_cmd_process_invalid_tag",
+    "test_cmd_process_unknown_command"
+   ],
+   "tests": 7
+  }
+ },
+ "mutant_rounds_log": [
+  {
+   "round": 0,
+   "module": "led",
+   "train_mutants": 10,
+   "survived": 10
+  },
+  {
+   "round": 0,
+   "module": "cmd",
+   "train_mutants": 44,
+   "survived": 22
+  },
+  {
+   "round": 1,
+   "module": "led",
+   "train_mutants": 10,
+   "survived": 10
+  },
+  {
+   "round": 1,
+   "module": "cmd",
+   "train_mutants": 44,
+   "survived": 22
+  }
+ ],
+ "mutant_cleanup": {
+  "lin": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "bldc": {
+   "built": false,
+   "removed": [],
+   "tests": 0
+  },
+  "led": {
+   "built": true,
+   "removed": [],
+   "tests": 3
+  },
+  "cmd": {
+   "built": true,
+   "removed": [],
+   "tests": 7
+  }
+ },
+ "llm_calls": 40,
+ "output_tokens": 126017,
+ "llm_seconds": 2990.8,
+ "wall_seconds_agent": 3576.1,
+ "scores": {
+  "single": {
+   "all": 0.201,
+   "heldout": 0.1828,
+   "heldout_killed": 17,
+   "heldout_n": 93,
+   "killed_ids": [
+    "cmd-061",
+    "cmd-062",
+    "cmd-063",
+    "cmd-071",
+    "cmd-074",
+    "cmd-075",
+    "cmd-078",
+    "cmd-079",
+    "cmd-082",
+    "cmd-083",
+    "cmd-084",
+    "cmd-094",
+    "cmd-095",
+    "cmd-098",
+    "cmd-100",
+    "cmd-102",
+    "cmd-103",
+    "cmd-104",
+    "cmd-105",
+    "cmd-106",
+    "cmd-107",
+    "cmd-108",
+    "cmd-109",
+    "cmd-110",
+    "cmd-111",
+    "cmd-112",
+    "cmd-116",
+    "cmd-117",
+    "cmd-118",
+    "cmd-119",
+    "cmd-123",
+    "cmd-124",
+    "cmd-126",
+    "cmd-127",
+    "cmd-128",
+    "cmd-130",
+    "cmd-131",
+    "cmd-132",
+    "cmd-133"
+   ]
+  },
+  "loop": {
+   "all": 0.201,
+   "heldout": 0.1828,
+   "heldout_killed": 17,
+   "heldout_n": 93,
+   "killed_ids": [
+    "cmd-061",
+    "cmd-062",
+    "cmd-063",
+    "cmd-071",
+    "cmd-074",
+    "cmd-075",
+    "cmd-078",
+    "cmd-079",
+    "cmd-082",
+    "cmd-083",
+    "cmd-084",
+    "cmd-094",
+    "cmd-095",
+    "cmd-098",
+    "cmd-100",
+    "cmd-102",
+    "cmd-103",
+    "cmd-104",
+    "cmd-105",
+    "cmd-106",
+    "cmd-107",
+    "cmd-108",
+    "cmd-109",
+    "cmd-110",
+    "cmd-111",
+    "cmd-112",
+    "cmd-116",
+    "cmd-117",
+    "cmd-118",
+    "cmd-119",
+    "cmd-123",
+    "cmd-124",
+    "cmd-126",
+    "cmd-127",
+    "cmd-128",
+    "cmd-130",
+    "cmd-131",
+    "cmd-132",
+    "cmd-133"
+   ]
+  },
+  "mutant": {
+   "all": 0.201,
+   "heldout": 0.1828,
+   "heldout_killed": 17,
+   "heldout_n": 93,
+   "killed_ids": [
+    "cmd-061",
+    "cmd-062",
+    "cmd-063",
+    "cmd-071",
+    "cmd-074",
+    "cmd-075",
+    "cmd-078",
+    "cmd-079",
+    "cmd-082",
+    "cmd-083",
+    "cmd-084",
+    "cmd-094",
+    "cmd-095",
+    "cmd-098",
+    "cmd-100",
+    "cmd-102",
+    "cmd-103",
+    "cmd-104",
+    "cmd-105",
+    "cmd-106",
+    "cmd-107",
+    "cmd-108",
+    "cmd-109",
+    "cmd-110",
+    "cmd-111",
+    "cmd-112",
+    "cmd-116",
+    "cmd-117",
+    "cmd-118",
+    "cmd-119",
+    "cmd-123",
+    "cmd-124",
+    "cmd-126",
+    "cmd-127",
+    "cmd-128",
+    "cmd-130",
+    "cmd-131",
+    "cmd-132",
+    "cmd-133"
+   ]
+  }
+ }
+}
