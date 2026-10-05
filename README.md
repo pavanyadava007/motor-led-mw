@@ -1,5 +1,7 @@
 # motor-led-mw
 
+Demo page: https://huggingface.co/spaces/pavanyadava07/motor-led-mw
+
 Reusable C middleware for a small automotive motor + LED node, integrated on Zephyr with
 TrustZone (TF-M), an Ethernet stack and PSA Crypto, plus an AI agent that writes the unit tests
 and runs them on the target. Test quality is measured by mutation testing on the emulated
