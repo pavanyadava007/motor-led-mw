@@ -1,0 +1,58 @@
+{
+ "soc": {
+  "25degC/UDDS": {
+   "cc_rmse_init_minus20": 20.01279600518247,
+   "ekf_rmse_init_minus20": 0.8612957977785586
+  },
+  "25degC/US06": {
+   "cc_rmse_init_minus20": 20.026060637158693,
+   "ekf_rmse_init_minus20": 0.7776007582917642
+  },
+  "25degC/LA92": {
+   "cc_rmse_init_minus20": 20.050715059457527,
+   "ekf_rmse_init_minus20": 0.5724254070727774
+  },
+  "25degC/Mixed1": {
+   "cc_rmse_init_minus20": 20.04908833423977,
+   "ekf_rmse_init_minus20": 0.7262736888735852
+  },
+  "25degC/Mixed2": {
+   "cc_rmse_init_minus20": 19.982618507378938,
+   "ekf_rmse_init_minus20": 0.8025160868283658
+  },
+  "0degC/UDDS": {
+   "cc_rmse_init_minus20": 20.027345462436372,
+   "ekf_rmse_init_minus20": 2.9673374611455325
+  },
+  "0degC/US06": {
+   "cc_rmse_init_minus20": 20.168513341448207,
+   "ekf_rmse_init_minus20": 1.7616782955016614
+  },
+  "0degC/LA92": {
+   "cc_rmse_init_minus20": 20.03892137031138,
+   "ekf_rmse_init_minus20": 3.109139470299923
+  },
+  "0degC/HWFET": {
+   "cc_rmse_init_minus20": 20.00408986988663,
+   "ekf_rmse_init_minus20": 4.667728994808529
+  },
+  "0degC/Mixed1": {
+   "cc_rmse_init_minus20": 20.003288823326397,
+   "ekf_rmse_init_minus20": 3.199426954441716
+  },
+  "0degC/Mixed2": {
+   "cc_rmse_init_minus20": 19.972733997921672,
+   "ekf_rmse_init_minus20": 3.138226545690543
+  }
+ },
+ "parity_bit_exact_fraction": 1.0,
+ "tests_host": 62,
+ "tests_target": 62,
+ "mutation_score": 0.8991,
+ "requirements": [
+  24,
+  23,
+  24
+ ],
+ "insns_per_cycle": 4689.2
+}

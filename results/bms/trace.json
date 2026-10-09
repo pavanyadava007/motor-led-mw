@@ -1,0 +1,848 @@
+{
+ "requirements": 24,
+ "covered": 24,
+ "passing": 23,
+ "not_passing": [
+  "BMS-REQ-015"
+ ],
+ "unknown_ids_in_tests": [],
+ "tests_linked": 67,
+ "rows": [
+  {
+   "id": "BMS-REQ-001",
+   "title": "Cell over-voltage",
+   "text": "A cell voltage above 4.20 V for 3 consecutive samples shall latch CELL_OV and command all contactors open in the same 10 ms cycle as the 3rd sample.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_cell_ov_opens_contactors_in_same_cycle",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_active_mask_boundaries",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_ov_latches_on_third_sample",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_ov_threshold_is_strict",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-002",
+   "title": "Cell under-voltage",
+   "text": "A cell voltage below 2.80 V for 3 consecutive samples shall latch CELL_UV and command all contactors open.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_active_mask_boundaries",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_uv_latches",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_uv_threshold_is_strict",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-003",
+   "title": "Cell temperature window",
+   "text": "A temperature above 60.0 degC or below -20.0 degC for 3 consecutive samples shall latch CELL_OT or CELL_UT and command all contactors open.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_over_and_under_temperature",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-004",
+   "title": "Pack over-current",
+   "text": "A discharge current above 20.0 A or a charge current above 6.0 A for 3 consecutive samples shall latch OC_DISCHARGE or OC_CHARGE and command all contactors open.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_discharge_over_current",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_charge_over_current",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-005",
+   "title": "Debounce",
+   "text": "A limit violation present for fewer than the configured number of consecutive samples (3) shall not latch a fault; one sample inside the limit shall restart the count.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_open_wire_resets_cell_counters",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_ov_latches_on_third_sample",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_debounce_resets_on_good_sample",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-006",
+   "title": "Fault latching",
+   "text": "Latched faults shall stay set after the condition disappears, until a fault reset request is received while no fault condition is present.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_fault_reset_over_can",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_fault_stays_latched_until_clear",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-007",
+   "title": "Open sense wire",
+   "text": "A cell voltage reading below 0.5 V or above 5.0 V for 3 consecutive samples shall latch OPEN_WIRE, shall not be classified as CELL_UV/CELL_OV, and shall not be fed to the SoC estimator.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_open_wire_injection",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_active_mask_boundaries",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_all_channels_broken",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_open_wire_resets_cell_counters",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_open_wire_is_sensor_fault_not_uv",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-008",
+   "title": "Frozen cell voltage sensor",
+   "text": "A cell voltage reading that keeps exactly the same raw value for 100 consecutive samples (1 s) while the absolute pack current is at least 1.0 A shall latch SENSOR_STUCK.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_stuck_sensor_injection",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_stuck_needs_load_threshold",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_stuck_cell_voltage_under_load",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_constant_voltage_at_rest_is_not_stuck",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-009",
+   "title": "Temperature sensor plausibility",
+   "text": "A temperature reading below -40.0 degC or above 125.0 degC for 3 consecutive samples shall latch TEMP_SENSOR and shall not be used for the OT/UT checks.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_all_channels_broken",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_temperature_sensor_plausibility",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-010",
+   "title": "Contactor sequencing",
+   "text": "On a close request in STANDBY the BMS shall close the negative and precharge contactors only; it shall close the main positive contactor and open the precharge contactor only when the bus voltage has reached 95 % of the pack voltage.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_power_up_to_active",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_precharge_with_tiny_pack_voltage",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_startup_sequence",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_precharge_needs_pack_voltage",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-011",
+   "title": "Precharge timeout",
+   "text": "If precharge has not completed 500 ms after it started, the BMS shall latch PRECHARGE, enter FAULT and open all contactors.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_timer_saturation",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_precharge_timeout",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_precharge_fault_cleared_by_reset",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-012",
+   "title": "Leaving FAULT",
+   "text": "The BMS shall leave FAULT only on a fault reset request with no latched fault remaining, and only to STANDBY (never directly to PRECHARGE or ACTIVE).",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_fault_reset_over_can",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_fault_exit_needs_reset_and_no_fault",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_precharge_fault_cleared_by_reset",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-013",
+   "title": "Safe state",
+   "text": "In every state, a latched fault shall make the BMS enter FAULT with all contactors commanded open in the same cycle.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_cell_ov_opens_contactors_in_same_cycle",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_fault_opens_from_every_state",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-014",
+   "title": "SoC initialisation",
+   "text": "At power-up each cell SoC shall be initialised from the OCV-SoC table using the first plausible voltage sample (rest assumption).",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_power_up_to_active",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_cycle_soc_outputs",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_ocv_table_round_trip",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_ocv_slope_and_clamp",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-015",
+   "title": "SoC accuracy",
+   "text": "With an initial SoC error of 20 %, the SoC estimate shall be within 5 % SoC of the reference from 10 minutes after power-up until the end of discharge, on the held-out drive cycles at 25 degC and at 0 degC.",
+   "covered": true,
+   "pass": false,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_ekf_golden_values",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_coulomb_step_exact",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_cycle_soc_outputs",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_coulomb_counter_integrates_current",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_ekf_converges_on_model_plant",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_ekf_soc_stays_in_range",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "analysis",
+     "name": "25 degC held-out cycles, EKF max error after 600 s <= 5 %",
+     "file": "results/bms/soc_eval.json",
+     "pass": true
+    },
+    {
+     "type": "analysis",
+     "name": "0 degC held-out cycles, EKF max error after 600 s <= 5 %",
+     "file": "results/bms/soc_eval.json",
+     "pass": false
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-016",
+   "title": "Deterministic numerics",
+   "text": "The SoC code shall use float32 arithmetic only, without libm, and shall give bit-identical results on the target processor and on the host test platform for the same inputs.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_ekf_golden_values",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_exp_neg_accuracy",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "analysis",
+     "name": "emulated Cortex-M4F vs x86-64 host, all SoC outputs bit identical",
+     "file": "results/bms/soc_eval.json",
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-017",
+   "title": "Passive balancing",
+   "text": "A cell shall be bled when it is at least 20 mV above the lowest cell and at or above 3.60 V, and stop when it is 5 mV or less above the lowest cell; at most 4 cells at a time; no balancing with a latched fault or a discharge current above 0.5 A.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_start_threshold_and_hysteresis",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_inhibits",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_max_bleeders_and_priority",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_balancing_in_cycle",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_balance_edges",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-018",
+   "title": "CAN interface",
+   "text": "The BMS shall send BMS_Status, BMS_Faults and one BMS_CellV frame every cycle, with the layout of bms/dbc/bms.dbc.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_tx_frames_every_cycle",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_status_round_trip",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_status_saturation",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_faults_frame",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_cell_voltage_mux",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_vcu_cmd_round_trip",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_every_status_bit",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_packers_clear_the_frame",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host, Python/DBC)",
+     "name": "test_status_frame_decodes_with_dbc",
+     "pass": true
+    },
+    {
+     "type": "test (host, Python/DBC)",
+     "name": "test_faults_frame_decodes_with_dbc",
+     "pass": true
+    },
+    {
+     "type": "test (host, Python/DBC)",
+     "name": "test_cell_voltage_mux_decodes_with_dbc",
+     "pass": true
+    },
+    {
+     "type": "test (host, Python/DBC)",
+     "name": "test_vcu_cmd_encoded_by_dbc_is_accepted",
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-019",
+   "title": "E2E protection on transmit",
+   "text": "Every transmitted frame shall carry a CRC-8 SAE J1850 over its data id and payload and a 4-bit alive counter incremented per frame.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_tx_frames_every_cycle",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_crc8_j1850_reference_values",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_protect_writes_counter_and_crc",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host, Python/DBC)",
+     "name": "test_crc_matches_python_reference",
+     "pass": true
+    },
+    {
+     "type": "test (host, Python/DBC)",
+     "name": "test_status_frame_decodes_with_dbc",
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-020",
+   "title": "E2E checks on receive",
+   "text": "A received VCU command frame with a CRC error, a repeated alive counter or a counter jump larger than 2 shall be discarded and flagged, without any state change.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_close_request_with_bad_crc_is_ignored",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_replayed_frame_with_frozen_counter_is_ignored",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_cycle_reports_e2e_warnings",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_rx_sequence_checks",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_rx_crc_error_every_bit",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host, Python/DBC)",
+     "name": "test_vcu_cmd_encoded_by_dbc_is_accepted",
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-021",
+   "title": "Command timeout",
+   "text": "Without a valid VCU command frame for 100 ms the BMS shall set COMM_LOSS; it shall then drop a pending close request in STANDBY or PRECHARGE, but keep the contactors closed in ACTIVE unless a fault occurs.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_comm_loss_holds_active",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_comm_loss_drops_close_request_before_active",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_timer_saturation",
+     "host": true,
+     "target": true,
+     "pass": true
+    },
+    {
+     "type": "test (host + emulated Cortex-M3)",
+     "name": "test_rx_timeout_and_frozen_counter",
+     "host": true,
+     "target": true,
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-022",
+   "title": "Execution and memory budget",
+   "text": "One BMS cycle for 12 cells shall need at most 20,000 instructions, at most 512 bytes of worst-case stack and at most 1 KiB of RAM context.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "analysis",
+     "name": "bms_cycle <= 20,000 emulated instructions per call (Cortex-M4F, -O2)",
+     "file": "results/bms/profile.json",
+     "pass": true
+    },
+    {
+     "type": "analysis",
+     "name": "worst-case stack of bms_cycle <= 512 bytes (Cortex-M4F, -Os and -O2)",
+     "file": "results/bms/profile.json",
+     "pass": true
+    },
+    {
+     "type": "analysis",
+     "name": "RAM context bms_t <= 1024 bytes",
+     "file": "results/bms/profile.json",
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-023",
+   "title": "Coding rules",
+   "text": "The library shall use no dynamic memory, no recursion and no OS or libc calls (compiler-generated memset allowed), build without warnings with -Wall -Wextra -Werror -pedantic -Wconversion, and have no cppcheck error findings.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "analysis",
+     "name": "only compiler-generated memset is external",
+     "file": "results/bms/profile.json",
+     "pass": true
+    },
+    {
+     "type": "analysis",
+     "name": "cppcheck reports no error-severity findings",
+     "file": "results/bms/static_analysis.json",
+     "pass": true
+    },
+    {
+     "type": "analysis",
+     "name": "strict compile (-Wall -Wextra -Werror -pedantic -Wconversion ...) on host gcc and arm-none-eabi-gcc",
+     "file": "results/bms/static_analysis.json",
+     "pass": true
+    }
+   ]
+  },
+  {
+   "id": "BMS-REQ-024",
+   "title": "Target test execution",
+   "text": "The unit test suite shall pass on the target processor family (Cortex-M, emulated) as well as on the host.",
+   "covered": true,
+   "pass": true,
+   "verified_by": [
+    {
+     "type": "analysis",
+     "name": "all unit tests pass in QEMU mps2-an385 (Cortex-M3)",
+     "file": "results/bms/target_tests.json",
+     "pass": true
+    }
+   ]
+  }
+ ]
+}

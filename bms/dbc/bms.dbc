@@ -1,0 +1,60 @@
+VERSION "motor-led-mw bms 0.2.0"
+
+
+NS_ :
+
+BS_:
+
+BU_: BMS VCU
+
+
+BO_ 256 BMS_Status: 8 BMS
+ SG_ Status_CRC : 0|8@1+ (1,0) [0|255] "" VCU
+ SG_ Status_Alive : 8|4@1+ (1,0) [0|15] "" VCU
+ SG_ BMS_State : 12|4@1+ (1,0) [0|4] "" VCU
+ SG_ PackVoltage : 16|16@1+ (0.1,0) [0|6553.5] "V" VCU
+ SG_ PackCurrent : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" VCU
+ SG_ SoC : 48|8@1+ (0.5,0) [0|100] "%" VCU
+ SG_ MainPositive : 56|1@1+ (1,0) [0|1] "" VCU
+ SG_ MainNegative : 57|1@1+ (1,0) [0|1] "" VCU
+ SG_ Precharge : 58|1@1+ (1,0) [0|1] "" VCU
+ SG_ Balancing : 59|1@1+ (1,0) [0|1] "" VCU
+ SG_ FaultActive : 60|1@1+ (1,0) [0|1] "" VCU
+ SG_ CommLoss : 61|1@1+ (1,0) [0|1] "" VCU
+
+BO_ 257 BMS_Faults: 8 BMS
+ SG_ Faults_CRC : 0|8@1+ (1,0) [0|255] "" VCU
+ SG_ Faults_Alive : 8|4@1+ (1,0) [0|15] "" VCU
+ SG_ FaultBits : 16|32@1+ (1,0) [0|4294967295] "" VCU
+ SG_ TempMax : 48|8@1+ (1,-40) [-40|215] "degC" VCU
+ SG_ TempMin : 56|8@1+ (1,-40) [-40|215] "degC" VCU
+
+BO_ 272 BMS_CellV: 8 BMS
+ SG_ CellV_CRC : 0|8@1+ (1,0) [0|255] "" VCU
+ SG_ CellV_Alive : 8|4@1+ (1,0) [0|15] "" VCU
+ SG_ CellV_Mux M : 12|4@1+ (1,0) [0|15] "" VCU
+ SG_ Cell01 m0 : 16|16@1+ (0.001,0) [0|65.535] "V" VCU
+ SG_ Cell02 m0 : 32|16@1+ (0.001,0) [0|65.535] "V" VCU
+ SG_ Cell03 m0 : 48|16@1+ (0.001,0) [0|65.535] "V" VCU
+ SG_ Cell04 m1 : 16|16@1+ (0.001,0) [0|65.535] "V" VCU
+ SG_ Cell05 m1 : 32|16@1+ (0.001,0) [0|65.535] "V" VCU
+ SG_ Cell06 m1 : 48|16@1+ (0.001,0) [0|65.535] "V" VCU
+ SG_ Cell07 m2 : 16|16@1+ (0.001,0) [0|65.535] "V" VCU
+ SG_ Cell08 m2 : 32|16@1+ (0.001,0) [0|65.535] "V" VCU
+ SG_ Cell09 m2 : 48|16@1+ (0.001,0) [0|65.535] "V" VCU
+ SG_ Cell10 m3 : 16|16@1+ (0.001,0) [0|65.535] "V" VCU
+ SG_ Cell11 m3 : 32|16@1+ (0.001,0) [0|65.535] "V" VCU
+ SG_ Cell12 m3 : 48|16@1+ (0.001,0) [0|65.535] "V" VCU
+
+BO_ 512 VCU_Cmd: 8 VCU
+ SG_ Cmd_CRC : 0|8@1+ (1,0) [0|255] "" BMS
+ SG_ Cmd_Alive : 8|4@1+ (1,0) [0|15] "" BMS
+ SG_ CloseRequest : 16|1@1+ (1,0) [0|1] "" BMS
+ SG_ FaultResetRequest : 17|1@1+ (1,0) [0|1] "" BMS
+
+
+CM_ BO_ 256 "BMS status, every 10 ms. E2E: CRC-8 SAE J1850 over data id 0x10 + bytes 1..7, 4-bit alive counter.";
+CM_ BO_ 257 "Latched faults, every 10 ms. E2E data id 0x11. FaultBits: see bms_types.h BMS_F_*.";
+CM_ BO_ 272 "Cell voltages, one mux value per 10 ms cycle (12s pack: mux 0..3). E2E data id 0x20 + mux. 0xFFFF = no cell.";
+CM_ BO_ 512 "VCU command to the BMS. E2E data id 0x30, timeout 100 ms.";
+VAL_ 256 BMS_State 0 "INIT" 1 "STANDBY" 2 "PRECHARGE" 3 "ACTIVE" 4 "FAULT" ;

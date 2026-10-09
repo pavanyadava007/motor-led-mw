@@ -1,0 +1,38 @@
+name: bms
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+jobs:
+  host:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends cppcheck
+          python3 -m pip install --break-system-packages pytest cantools pyyaml ruff
+      - name: Strict build and unit tests (gcc)
+        run: make -C bms test
+      - name: Unit tests with ASan + UBSan
+        run: make -C bms test-asan
+      - name: DBC and CRC cross-checks (pytest)
+        run: python3 -m pytest -q bms/tests/py
+      - name: cppcheck --enable=all (fails on any finding)
+        run: >
+          cppcheck --enable=all --std=c99 --inline-suppr --error-exitcode=1
+          --suppress=missingIncludeSystem --suppress=unusedFunction --suppress=checkersReport
+          -Ibms/include bms/src
+      - name: cppcheck MISRA C 2012 addon (report only)
+        run: >
+          cppcheck --addon=misra --std=c99 --suppress=missingIncludeSystem --suppress=unusedFunction
+          --suppress=checkersReport -Ibms/include bms/src 2>&1 | tee misra.txt;
+          echo "MISRA addon findings: $(grep -c 'misra-c2012' misra.txt || true)"
+      - name: ruff
+        run: ruff check bms/tools bms/tests/py tools agent tests/py
+      - name: Requirements traceability (from the committed results)
+        run: python3 bms/tools/trace.py

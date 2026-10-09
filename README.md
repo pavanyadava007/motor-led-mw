@@ -10,6 +10,11 @@ target, not by "the agent wrote tests".
 Everything runs in QEMU on a cloud VM (Arm MPS2 boards). No real board, motor or LED was used:
 the motor and the LED board are simple software models (see "Limits").
 
+Since v0.2.0 the repo also holds a **battery management (BMS) module** in `bms/`: cell monitoring with
+latched faults, a contactor state machine with precharge, SoC estimation (Coulomb counting + EKF) validated
+on real cell test data, passive balancing, E2E-protected CAN frames with a DBC, requirements traceability,
+profiling on an emulated Cortex-M4F and CI. See [BMS module](#bms-module).
+
 ## What is in it
 
 | Part | What it does | Where |
@@ -98,6 +103,102 @@ asked to recompute the expectation from the spec. So the final suites are regres
 they protect what the code does now, and a spec bug that the agent accepts would need human review to catch.
 Each agent run (30B) takes about an hour, 51 model calls and 150k output tokens.
 
+## BMS module
+
+Portable C99 battery management library for an N-series pack (default 12s of LG 18650HG2 cells, 10 ms cycle),
+written like flight-software prototypes are: no dynamic memory, no recursion, no OS or libc calls, every
+requirement traced to tests. All numbers below come from `results/bms/` (`make bms-all` regenerates them;
+summary in `results/bms/RESULTS.md`, matrix in `results/bms/TRACE.md`).
+
+| Part | What it does | Where |
+|---|---|---|
+| Monitoring | Per-cell over/under-voltage, over/under-temperature, charge/discharge over-current, each with a 3-sample debounce and latched faults; open sense wire, frozen (stuck) cell voltage under load and implausible temperature sensors are sensor faults and are kept out of the cell checks. | `bms/include/bms/bms_monitor.h` |
+| Contactor state machine | INIT, STANDBY, PRECHARGE, ACTIVE, FAULT. Precharge closes only negative + precharge contactors; main positive closes at 95 % bus voltage; 500 ms precharge timeout; any latched fault opens all contactors in the same cycle; FAULT exits only on a reset request and only to STANDBY. | `bms_sm.h` |
+| SoC | Coulomb counting plus an Extended Kalman Filter on a 1-RC equivalent circuit model with an OCV-SoC table. float32 only, no libm (own exp), so host and target give the same bits. | `bms_soc.h` |
+| Balancing | Passive, start at 20 mV above the lowest cell, stop at 5 mV, floor 3.60 V, at most 4 bleeders, off with faults or discharge above 0.5 A. | `bms_balance.h` |
+| CAN + E2E | BMS_Status, BMS_Faults, multiplexed BMS_CellV and the received VCU_Cmd, with CRC-8 SAE J1850 over a data id + payload and a 4-bit alive counter (AUTOSAR E2E style). The receiver discards CRC errors, repeated counters and counter jumps and times out after 100 ms. In ACTIVE a data-link loss keeps the contactors closed (no un-commanded loss of propulsion); cell faults still open them. | `bms_can.h`, `bms_e2e.h`, `bms/dbc/bms.dbc` |
+| Requirements | 24 derived requirements in aircraft style, each linked to tests (`verifies:` tags) or to an analysis check on a results file. | `bms/requirements.yaml`, `bms/tools/trace.py` |
+
+### SoC on real cell data (held-out drive cycles)
+
+Data: McMaster University LG 18650HG2 tests by Kollmeyer, Vidal, Naguib and Skells (Mendeley Data,
+doi:10.17632/cp3473x7xv.3, **CC BY 4.0**), downloaded by `bms/tools/fetch_data.py`. The ECM (OCV table, R0, R1, tau
+per SoC) and the EKF noise were fitted on the **C/20 and HPPC tests only**. The drive cycles below were never used for
+fitting or tuning. Reference SoC is the tester's Ah counter divided by the C/20 capacity. Both estimators run the
+same C code; "start -20 %" means they start at 80 % when the cell is full.
+
+| Held-out cycle | CC RMSE, start -20 % | EKF RMSE, start -20 % | EKF max error after 10 min | CC RMSE, -50 mA sensor offset | EKF RMSE, -50 mA sensor offset |
+|---|---|---|---|---|---|
+| UDDS, 25 degC | 20.01 | 0.86 | 1.43 | 4.62 | 1.47 |
+| US06, 25 degC | 20.03 | 0.78 | 2.45 | 1.19 | 0.94 |
+| LA92, 25 degC | 20.05 | 0.57 | 1.18 | 2.97 | 1.07 |
+| Mixed1, 25 degC | 20.05 | 0.73 | 1.47 | 2.28 | 1.11 |
+| Mixed2, 25 degC | 19.98 | 0.80 | 2.00 | 2.26 | 1.24 |
+| UDDS, 0 degC | 20.03 | 2.97 | 4.21 | 4.36 | 3.40 |
+| US06, 0 degC | 20.17 | 1.76 | 3.70 | 1.24 | 1.79 |
+| LA92, 0 degC | 20.04 | 3.11 | 4.81 | 2.56 | 3.44 |
+| HWFET, 0 degC | 20.00 | 4.67 | 6.62 | 1.54 | 4.68 |
+| Mixed1, 0 degC | 20.00 | 3.20 | 5.07 | 2.08 | 3.55 |
+| Mixed2, 0 degC | 19.97 | 3.14 | 4.85 | 2.20 | 3.53 |
+
+![SoC on held-out cycles: reference vs Coulomb counting vs EKF](results/bms/soc_heldout.png)
+
+What this shows:
+
+- **The EKF removes a 20 % initial SoC error that Coulomb counting keeps for the whole cycle**: RMSE
+  0.57 to 0.86 % at 25 degC and 1.76 to 4.67 % at 0 degC, against about 20 % for Coulomb counting.
+- **At 0 degC the 1-RC model is the limit.** The EKF error after 10 minutes reaches 6.62 % (HWFET), so
+  requirement BMS-REQ-015 (5 % after 10 minutes at 25 and 0 degC) is **not met** at 0 degC; the traceability matrix
+  shows it as failing. With a correct start and a 50 mA current-sensor offset, the EKF beats Coulomb counting on all
+  5 cycles at 25 degC but is worse on 5 of 6 cycles at 0 degC. A second RC pair, hysteresis and
+  temperature-dependent parameters are the next steps.
+- **Target parity: the C code on the emulated Cortex-M4F (QEMU mps2-an386, FPU) produces bit-identical results to
+  the x86-64 host on all 8,118,504 float32 outputs** of these runs (`-ffp-contract=off`, no libm).
+
+### Verification
+
+| Check | Result | File |
+|---|---|---|
+| C unit tests, host (gcc) | 62 pass, also with ASan + UBSan | `host_tests.json` |
+| Same tests as ztest on QEMU mps2-an385 (Cortex-M3, emulated, soft float) | 62 pass | `target_tests.json` |
+| Fault injection (inside the suites) | open wire, stuck cell voltage, implausible NTC, CAN CRC error on every bit, frozen alive counter / replayed frame, counter jump, command timeout in STANDBY/PRECHARGE/ACTIVE, precharge timeout | `bms/tests/unit/` |
+| DBC cross-check | C-packed frames decoded with cantools from `bms.dbc`, CRC vs an independent Python CRC: 8 pass | `host_tests.json` |
+| Mutation score (operators of `tools/mutate.py`, equivalent mutants dropped by object-code hash) | **89.9 %** (597 of 664); 74.4 % before the detail tests written from the first run's survivors | `mutation.json` |
+| Requirements | 24/24 covered, 23 passing; BMS-REQ-015 fails (0 degC SoC accuracy) | `TRACE.md` |
+| Strict compile | 0 warnings with `-Wall -Wextra -Werror -pedantic -Wconversion -Wsign-conversion -Wshadow -Wdouble-promotion ...` on gcc and arm-none-eabi-gcc | `static_analysis.json` |
+| cppcheck 2.13 `--enable=all` | 0 findings | `static_analysis.json` |
+| cppcheck MISRA C 2012 addon | 20 findings open (rules 10.3 x9, 10.8 x7, 8.7 x2, 8.9 x1, 14.1 x1), recorded, not fixed | `static_analysis.json` |
+| CI | GitHub Actions: strict build, unit tests, ASan/UBSan, pytest, cppcheck, ruff, traceability | `.github/workflows/bms.yml` |
+
+### Profile (emulated Cortex-M4F)
+
+`bms/tools/profile.py`, arm-none-eabi-gcc 13.3, 12 cells. Instruction counts come from a QEMU TCG plugin and are
+**emulated instruction counts, not CPU cycles or time**.
+
+| Item | Value |
+|---|---|
+| One BMS cycle (monitor + state machine + 12 EKF steps + balancing + 3 CAN frames + RX E2E), -O2 | **4,689.2 instructions** (6,701.2 with the first, bit-serial CRC) |
+| One EKF step | 178.2 instructions |
+| CRC/E2E per cycle | 543.0 instructions (2,555.0 bit-serial: the profile showed the CRC at 38 % of the cycle, a 16-entry nibble table fixed it for 16 bytes of ROM) |
+| Code size (text incl. parameter tables), -Os | Cortex-M4F 4,282 B, Cortex-M33 4,266 B, Cortex-M3 4,482 B; 0 B data/bss |
+| RAM context `bms_t` / worst-case stack of `bms_cycle()` | 620 B / 208 B (-Os, from `-fcallgraph-info=su`) |
+
+### Limits
+
+- **No real hardware**: the MCU is emulated (QEMU), there are no real cells in a pack, no AFE chip, no contactors,
+  no CAN transceiver. Cell inputs in the unit tests are scripted; only the SoC study uses measured data, and that is
+  one cylindrical cell from a lab tester, not an aircraft pack.
+- Data: LG 18650HG2 from McMaster University (Kollmeyer et al.), CC BY 4.0. Two temperatures (25 and 0 degC),
+  one parameter set per temperature (no interpolation between them). The reference SoC is itself Coulomb counting
+  with the lab tester's 0.1 % current sensor. All drive cycles start from full charge at rest, which makes the
+  EKF's start-up easy; a start from mid SoC under load is not covered by this data.
+- The EKF does not model OCV hysteresis, a second RC pair, temperature inside a set, ageing or capacity fade,
+  or cell-to-cell differences.
+- Instruction counts are emulated, not cycles; timing on a real MCU (flash wait states, caches) will differ.
+- **Not certified. Not DO-178C compliant and not DO-254/ARP4754A work.** It only borrows DO-178C-minded practices:
+  written requirements, traceability to tests, structural checks (mutation testing), static analysis, deterministic
+  numerics and reproducible results. The requirements are written for this demo, not taken from a real program.
+
 ## Run it
 
 Needs: Linux, Docker, an NVIDIA GPU for the agent (tested on one L4), Arm GNU Toolchain 13.3, Python 3.11.
@@ -120,6 +221,12 @@ make app node       # terminal 1: boot the node
 make demo           # terminal 2: signed commands over UDP
 make ollama study report   # agent study (about 4 h on one L4)
 make test lint      # host tests of the Python tooling
+
+# BMS module
+make bms-data       # ~150 MB of LG 18650HG2 CSVs from Mendeley Data (CC BY 4.0)
+make bms-ci-image   # ubuntu 24.04 + gcc + cppcheck, same packages as CI
+make bms-all        # host + target tests, SoC study, profile, mutation, static analysis, trace, report
+make -C bms test    # only the host unit tests (needs gcc)
 ```
 
 ## Limits
@@ -143,7 +250,8 @@ tests/harness/   generic ztest image for any test folder
 tests/py/        host tests of the tooling
 tools/           target runner, mutation testing, node client, size check, report
 agent/           test-writing agent
-results/         every number in this README
+bms/             battery management module (include/ = spec, src/, tests/, pil/, tools/, dbc/)
+results/         every number in this README (BMS: results/bms/)
 ```
 
 Licence: MIT.

@@ -1,0 +1,139 @@
+# BMS software requirements (derived, aircraft-level style). Written for this demo
+# project: they are NOT requirements of any real aircraft program.
+# Each requirement is verified by tests (tagged "verifies: <id>" in the test sources)
+# and/or by analysis (a check on a results file). bms/tools/trace.py builds the matrix.
+# Units: cell voltage mV, temperature degC, current A (+ = charge), cycle = 10 ms.
+requirements:
+  - id: BMS-REQ-001
+    title: Cell over-voltage
+    text: A cell voltage above 4.20 V for 3 consecutive samples shall latch CELL_OV and command all contactors open in the same 10 ms cycle as the 3rd sample.
+    rationale: Li-ion over-charge leads to lithium plating and thermal runaway; 4.20 V is the cell maximum charge voltage.
+  - id: BMS-REQ-002
+    title: Cell under-voltage
+    text: A cell voltage below 2.80 V for 3 consecutive samples shall latch CELL_UV and command all contactors open.
+    rationale: Over-discharge dissolves the copper current collector; 2.80 V keeps margin to the 2.5 V datasheet limit.
+  - id: BMS-REQ-003
+    title: Cell temperature window
+    text: A temperature above 60.0 degC or below -20.0 degC for 3 consecutive samples shall latch CELL_OT or CELL_UT and command all contactors open.
+    rationale: Operating window of the cell; outside it the cell must not carry current.
+  - id: BMS-REQ-004
+    title: Pack over-current
+    text: A discharge current above 20.0 A or a charge current above 6.0 A for 3 consecutive samples shall latch OC_DISCHARGE or OC_CHARGE and command all contactors open.
+    rationale: Protects cells and busbars; limits from the cell datasheet continuous ratings.
+  - id: BMS-REQ-005
+    title: Debounce
+    text: A limit violation present for fewer than the configured number of consecutive samples (3) shall not latch a fault; one sample inside the limit shall restart the count.
+    rationale: Avoids nuisance trips from single measurement spikes (EMI) while bounding the reaction time to 30 ms.
+  - id: BMS-REQ-006
+    title: Fault latching
+    text: Latched faults shall stay set after the condition disappears, until a fault reset request is received while no fault condition is present.
+    rationale: Intermittent faults must be seen and acknowledged by the vehicle level, not self-cleared.
+  - id: BMS-REQ-007
+    title: Open sense wire
+    text: A cell voltage reading below 0.5 V or above 5.0 V for 3 consecutive samples shall latch OPEN_WIRE, shall not be classified as CELL_UV/CELL_OV, and shall not be fed to the SoC estimator.
+    rationale: A broken sense line must be reported as a sensor fault, and an implausible reading must not corrupt the estimator state.
+  - id: BMS-REQ-008
+    title: Frozen cell voltage sensor
+    text: A cell voltage reading that keeps exactly the same raw value for 100 consecutive samples (1 s) while the absolute pack current is at least 1.0 A shall latch SENSOR_STUCK.
+    rationale: A frozen AFE channel would hide an over- or under-voltage; under load a real reading moves.
+  - id: BMS-REQ-009
+    title: Temperature sensor plausibility
+    text: A temperature reading below -40.0 degC or above 125.0 degC for 3 consecutive samples shall latch TEMP_SENSOR and shall not be used for the OT/UT checks.
+    rationale: Shorted or open NTC channels give out-of-range readings.
+  - id: BMS-REQ-010
+    title: Contactor sequencing
+    text: On a close request in STANDBY the BMS shall close the negative and precharge contactors only; it shall close the main positive contactor and open the precharge contactor only when the bus voltage has reached 95 % of the pack voltage.
+    rationale: Closing the main contactor onto an uncharged DC-link capacitance causes inrush current and contact welding.
+  - id: BMS-REQ-011
+    title: Precharge timeout
+    text: If precharge has not completed 500 ms after it started, the BMS shall latch PRECHARGE, enter FAULT and open all contactors.
+    rationale: A precharge that does not finish indicates a short on the HV bus or a failed precharge path.
+  - id: BMS-REQ-012
+    title: Leaving FAULT
+    text: The BMS shall leave FAULT only on a fault reset request with no latched fault remaining, and only to STANDBY (never directly to PRECHARGE or ACTIVE).
+    rationale: Re-closing after a fault needs a new, explicit close request and a new precharge.
+  - id: BMS-REQ-013
+    title: Safe state
+    text: In every state, a latched fault shall make the BMS enter FAULT with all contactors commanded open in the same cycle.
+    rationale: Contactors open is the safe state for cell-level faults.
+  - id: BMS-REQ-014
+    title: SoC initialisation
+    text: At power-up each cell SoC shall be initialised from the OCV-SoC table using the first plausible voltage sample (rest assumption).
+    rationale: The BMS has no non-volatile SoC in this prototype; a cell at rest is near its OCV.
+  - id: BMS-REQ-015
+    title: SoC accuracy
+    text: With an initial SoC error of 20 %, the SoC estimate shall be within 5 % SoC of the reference from 10 minutes after power-up until the end of discharge, on the held-out drive cycles at 25 degC and at 0 degC.
+    rationale: Range and reserve planning on aircraft level need a bounded SoC error; Coulomb counting alone cannot remove an initial error.
+  - id: BMS-REQ-016
+    title: Deterministic numerics
+    text: The SoC code shall use float32 arithmetic only, without libm, and shall give bit-identical results on the target processor and on the host test platform for the same inputs.
+    rationale: Host-based verification of the estimator is only valid if the target computes the same numbers.
+  - id: BMS-REQ-017
+    title: Passive balancing
+    text: A cell shall be bled when it is at least 20 mV above the lowest cell and at or above 3.60 V, and stop when it is 5 mV or less above the lowest cell; at most 4 cells at a time; no balancing with a latched fault or a discharge current above 0.5 A.
+    rationale: Equalises cell SoC without overheating the balancing resistors or wasting energy during flight.
+  - id: BMS-REQ-018
+    title: CAN interface
+    text: The BMS shall send BMS_Status, BMS_Faults and one BMS_CellV frame every cycle, with the layout of bms/dbc/bms.dbc.
+    rationale: Interface control between the BMS and the vehicle computer.
+  - id: BMS-REQ-019
+    title: E2E protection on transmit
+    text: Every transmitted frame shall carry a CRC-8 SAE J1850 over its data id and payload and a 4-bit alive counter incremented per frame.
+    rationale: Detects corruption, masquerading and stale frames on the receiver side.
+  - id: BMS-REQ-020
+    title: E2E checks on receive
+    text: A received VCU command frame with a CRC error, a repeated alive counter or a counter jump larger than 2 shall be discarded and flagged, without any state change.
+    rationale: A corrupted or replayed command must never close contactors.
+  - id: BMS-REQ-021
+    title: Command timeout
+    text: Without a valid VCU command frame for 100 ms the BMS shall set COMM_LOSS; it shall then drop a pending close request in STANDBY or PRECHARGE, but keep the contactors closed in ACTIVE unless a fault occurs.
+    rationale: Loss of the data link alone must not cause an uncommanded loss of propulsion power in flight; cell protection stays active.
+  - id: BMS-REQ-022
+    title: Execution and memory budget
+    text: One BMS cycle for 12 cells shall need at most 20,000 instructions, at most 512 bytes of worst-case stack and at most 1 KiB of RAM context.
+    rationale: Leaves room in a 10 ms frame on a 100+ MHz Cortex-M class MCU for the rest of the BMS software.
+  - id: BMS-REQ-023
+    title: Coding rules
+    text: The library shall use no dynamic memory, no recursion and no OS or libc calls (compiler-generated memset allowed), build without warnings with -Wall -Wextra -Werror -pedantic -Wconversion, and have no cppcheck error findings.
+    rationale: DO-178C-minded practice (determinism, analysability); this project is not certified.
+  - id: BMS-REQ-024
+    title: Target test execution
+    text: The unit test suite shall pass on the target processor family (Cortex-M, emulated) as well as on the host.
+    rationale: Host results are only credible if the same tests pass on the target compiler and core.
+
+analysis:
+  BMS-REQ-015:
+    - name: 25 degC held-out cycles, EKF max error after 600 s <= 5 %
+      file: results/bms/soc_eval.json
+      check: all(r["ekf"]["max_abs_after_600s_pct"] <= 5.0 for r in d["runs"] if r["scenario"] == "init_minus20" and r["temp"] == "25degC")
+    - name: 0 degC held-out cycles, EKF max error after 600 s <= 5 %
+      file: results/bms/soc_eval.json
+      check: all(r["ekf"]["max_abs_after_600s_pct"] <= 5.0 for r in d["runs"] if r["scenario"] == "init_minus20" and r["temp"] == "0degC")
+  BMS-REQ-016:
+    - name: emulated Cortex-M4F vs x86-64 host, all SoC outputs bit identical
+      file: results/bms/soc_eval.json
+      check: d["parity_target_vs_host"]["bit_exact_fraction"] == 1.0
+  BMS-REQ-022:
+    - name: bms_cycle <= 20,000 emulated instructions per call (Cortex-M4F, -O2)
+      file: results/bms/profile.json
+      check: d["insn_counts_cortex_m4f_O2_emulated"]["groups"]["bms_cycle"]["insns_per_call"] <= 20000
+    - name: worst-case stack of bms_cycle <= 512 bytes (Cortex-M4F, -Os and -O2)
+      file: results/bms/profile.json
+      check: d["stack_cortex_m4f_Os"]["bms_cycle_worst_case_bytes"] <= 512 and d["stack_cortex_m4f_O2"]["bms_cycle_worst_case_bytes"] <= 512
+    - name: RAM context bms_t <= 1024 bytes
+      file: results/bms/profile.json
+      check: d["ram_bms_context_bytes"] <= 1024
+  BMS-REQ-023:
+    - name: only compiler-generated memset is external
+      file: results/bms/profile.json
+      check: set(d["external_symbols_needed"]) <= {"memset"}
+    - name: cppcheck reports no error-severity findings
+      file: results/bms/static_analysis.json
+      check: d["cppcheck"]["by_severity"].get("error", 0) == 0
+    - name: strict compile (-Wall -Wextra -Werror -pedantic -Wconversion ...) on host gcc and arm-none-eabi-gcc
+      file: results/bms/static_analysis.json
+      check: d["strict_compile"]["host_gcc"]["warnings"] == 0 and d["strict_compile"]["arm_none_eabi_gcc"]["warnings"] == 0
+  BMS-REQ-024:
+    - name: all unit tests pass in QEMU mps2-an385 (Cortex-M3)
+      file: results/bms/target_tests.json
+      check: d["success"] and d["failed"] == 0 and d["passed"] == len(json.load(open("results/bms/host_tests.json"))["c_unit"]["passed"])

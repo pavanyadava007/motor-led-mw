@@ -1,0 +1,58 @@
+{
+ "strict_compile": {
+  "host_gcc": {
+   "compiler": "gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-5)",
+   "flags": "-std=c99 -Wall -Wextra -pedantic -Wconversion -Wsign-conversion -Wshadow -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wdouble-promotion -ffp-contract=off -O2",
+   "warnings": 0
+  },
+  "arm_none_eabi_gcc": {
+   "compiler": "arm-none-eabi-gcc (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 13.3.1 20240614",
+   "flags": "-std=c99 -Wall -Wextra -pedantic -Wconversion -Wsign-conversion -Wshadow -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wdouble-promotion -ffp-contract=off -Os -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard",
+   "warnings": 0
+  }
+ },
+ "cppcheck": {
+  "exit_code": 0,
+  "findings": 0,
+  "by_severity": {},
+  "by_id": {},
+  "rows": []
+ },
+ "misra_addon": {
+  "exit_code": 0,
+  "findings": 20,
+  "by_severity": {
+   "style": 20
+  },
+  "by_id": {
+   "misra-c2012-10.3": 9,
+   "misra-c2012-10.8": 7,
+   "misra-c2012-8.7": 2,
+   "misra-c2012-8.9": 1,
+   "misra-c2012-14.1": 1
+  },
+  "rows": [
+   "bms/src/bms.c:108:style:misra-c2012-10.8:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_balance.c:28:style:misra-c2012-10.8:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_balance.c:33:style:misra-c2012-10.8:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_balance.c:41:style:misra-c2012-10.8:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_e2e.c:28:style:misra-c2012-8.9:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_monitor.c:62:style:misra-c2012-10.3:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_monitor.c:68:style:misra-c2012-10.3:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_monitor.c:83:style:misra-c2012-10.3:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_monitor.c:86:style:misra-c2012-10.3:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_monitor.c:118:style:misra-c2012-10.3:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_monitor.c:131:style:misra-c2012-10.3:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_monitor.c:134:style:misra-c2012-10.3:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_monitor.c:167:style:misra-c2012-10.3:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_monitor.c:170:style:misra-c2012-10.3:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_soc.c:46:style:misra-c2012-10.8:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_soc.c:57:style:misra-c2012-10.8:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_soc.c:81:style:misra-c2012-10.8:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_soc.c:16:style:misra-c2012-14.1:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_soc.c:4:style:misra-c2012-8.7:misra violation (use --rule-texts=<file> to get proper output)",
+   "bms/src/bms_soc.c:62:style:misra-c2012-8.7:misra violation (use --rule-texts=<file> to get proper output)"
+  ]
+ },
+ "cppcheck_version": "Cppcheck 2.13.0"
+}

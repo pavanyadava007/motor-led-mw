@@ -1,0 +1,5 @@
+# Local copy of the CI environment (GitHub ubuntu-24.04 runner packages): gcc with
+# ASan/UBSan runtimes, cppcheck 2.13 with the MISRA addon, python3.
+FROM ubuntu:24.04
+RUN apt-get update && apt-get install -y --no-install-recommends gcc libc6-dev make cppcheck python3 \
+    && rm -rf /var/lib/apt/lists/*

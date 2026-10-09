@@ -1,0 +1,375 @@
+{
+ "compiler": "arm-none-eabi-gcc (Arm GNU Toolchain 13.3.Rel1 (Build arm-13.24)) 13.3.1 20240614",
+ "size_bytes": {
+  "cortex-m4f -Os": {
+   "bms": {
+    "text": 876,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_balance": {
+    "text": 220,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_can": {
+    "text": 452,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_e2e": {
+    "text": 290,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_ecm_lg_hg2": {
+    "text": 480,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_monitor": {
+    "text": 894,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_sm": {
+    "text": 204,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_soc": {
+    "text": 866,
+    "data": 0,
+    "bss": 0
+   },
+   "total": {
+    "text": 4282,
+    "data": 0,
+    "bss": 0
+   }
+  },
+  "cortex-m4f -O2": {
+   "bms": {
+    "text": 972,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_balance": {
+    "text": 268,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_can": {
+    "text": 572,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_e2e": {
+    "text": 336,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_ecm_lg_hg2": {
+    "text": 480,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_monitor": {
+    "text": 1152,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_sm": {
+    "text": 232,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_soc": {
+    "text": 1304,
+    "data": 0,
+    "bss": 0
+   },
+   "total": {
+    "text": 5316,
+    "data": 0,
+    "bss": 0
+   }
+  },
+  "cortex-m33 -Os": {
+   "bms": {
+    "text": 876,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_balance": {
+    "text": 220,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_can": {
+    "text": 448,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_e2e": {
+    "text": 290,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_ecm_lg_hg2": {
+    "text": 480,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_monitor": {
+    "text": 890,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_sm": {
+    "text": 204,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_soc": {
+    "text": 858,
+    "data": 0,
+    "bss": 0
+   },
+   "total": {
+    "text": 4266,
+    "data": 0,
+    "bss": 0
+   }
+  },
+  "cortex-m33 -O2": {
+   "bms": {
+    "text": 984,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_balance": {
+    "text": 268,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_can": {
+    "text": 580,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_e2e": {
+    "text": 340,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_ecm_lg_hg2": {
+    "text": 480,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_monitor": {
+    "text": 1152,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_sm": {
+    "text": 232,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_soc": {
+    "text": 1292,
+    "data": 0,
+    "bss": 0
+   },
+   "total": {
+    "text": 5328,
+    "data": 0,
+    "bss": 0
+   }
+  },
+  "cortex-m3 -Os": {
+   "bms": {
+    "text": 860,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_balance": {
+    "text": 220,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_can": {
+    "text": 446,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_e2e": {
+    "text": 290,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_ecm_lg_hg2": {
+    "text": 480,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_monitor": {
+    "text": 890,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_sm": {
+    "text": 204,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_soc": {
+    "text": 1092,
+    "data": 0,
+    "bss": 0
+   },
+   "total": {
+    "text": 4482,
+    "data": 0,
+    "bss": 0
+   }
+  },
+  "cortex-m3 -O2": {
+   "bms": {
+    "text": 972,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_balance": {
+    "text": 268,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_can": {
+    "text": 572,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_e2e": {
+    "text": 336,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_ecm_lg_hg2": {
+    "text": 480,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_monitor": {
+    "text": 1144,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_sm": {
+    "text": 232,
+    "data": 0,
+    "bss": 0
+   },
+   "bms_soc": {
+    "text": 1660,
+    "data": 0,
+    "bss": 0
+   },
+   "total": {
+    "text": 5664,
+    "data": 0,
+    "bss": 0
+   }
+  }
+ },
+ "note": "instruction counts are QEMU EMULATED instruction counts, not cycles",
+ "stack_cortex_m4f_Os": {
+  "bms_cycle_worst_case_bytes": 208,
+  "worst_path": [
+   "bms_cycle",
+   "bms_mon_step"
+  ],
+  "largest_frame_bytes": 120,
+  "frames": {
+   "bms_balance": 24,
+   "bms_can_pack_cellv": 16,
+   "bms_can_pack_faults": 8,
+   "bms_can_pack_status": 16,
+   "bms_can_pack_vcu_cmd": 4,
+   "bms_can_unpack_status": 0,
+   "bms_can_unpack_vcu_cmd": 0,
+   "bms_crc8_j1850": 8,
+   "bms_cycle": 120,
+   "bms_default_cfg": 0,
+   "bms_e2e_check": 24,
+   "bms_e2e_crc": 16,
+   "bms_e2e_protect": 16,
+   "bms_e2e_rx_init": 0,
+   "bms_exp_neg": 0,
+   "bms_init": 32,
+   "bms_mon_clear": 0,
+   "bms_mon_init": 8,
+   "bms_mon_step": 88,
+   "bms_ocv": 0,
+   "bms_sm_init": 0,
+   "bms_sm_step": 16,
+   "bms_soc_from_ocv": 0,
+   "bms_soc_init": 0,
+   "bms_soc_step": 24,
+   "debounce": 0,
+   "lut": 0
+  }
+ },
+ "external_symbols_needed": [
+  "memset"
+ ],
+ "stack_cortex_m4f_O2": {
+  "bms_cycle_worst_case_bytes": 192,
+  "worst_path": [
+   "bms_cycle",
+   "bms_mon_step"
+  ],
+  "largest_frame_bytes": 120
+ },
+ "ram_bms_context_bytes": 620,
+ "insn_counts_cortex_m4f_O2_emulated": {
+  "qemu_exit": 0,
+  "stdout": "",
+  "groups": {
+   "bms_cycle": {
+    "insns_total": 4689190,
+    "calls": 1000,
+    "insns_per_call": 4689.2
+   },
+   "ekf_step": {
+    "insns_total": 2135724,
+    "calls": 11988,
+    "insns_per_call": 178.2
+   },
+   "monitor": {
+    "insns_total": 1067998,
+    "calls": 1000,
+    "insns_per_call": 1068.0
+   },
+   "state_machine": {
+    "insns_total": 23063,
+    "calls": 1000,
+    "insns_per_call": 23.1
+   },
+   "balance": {
+    "insns_total": 140118,
+    "calls": 1000,
+    "insns_per_call": 140.1
+   },
+   "crc_e2e": {
+    "insns_total": 542994,
+    "calls": 1000,
+    "insns_per_call": 543.0
+   }
+  },
+  "notes": "ekf_step counts per EKF step (12 per cycle; the first cycle runs the OCV init instead). crc_e2e counts per cycle: 1 RX E2E check + 3 TX protect calls (4 CRCs over 8 bytes)."
+ },
+ "profile_workload": "pil/prof_main.c: 1000 cycles, 12 cells, 4 temps, ACTIVE after cycle 6"
+}

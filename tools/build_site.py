@@ -9,6 +9,7 @@ from __future__ import annotations
 import html
 import json
 import re
+import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,6 +43,14 @@ def md_to_html(md: str) -> str:
             para.clear()
 
     for line in md.splitlines():
+        img = re.match(r"!\[([^\]]*)\]\(([^)]+)\)", line.strip())
+        if img:
+            flush_para()
+            flush()
+            name = Path(img.group(2)).name
+            shutil.copy(ROOT / img.group(2), SITE / name)
+            out.append(f"<img src='{name}' alt='{html.escape(img.group(1))}'>")
+            continue
         if line.strip() and not line.startswith(("|", "#", "- ", "```")):
             para.append(line.strip())
             continue
@@ -56,7 +65,8 @@ def md_to_html(md: str) -> str:
         if line.startswith("### "):
             out.append(f"<h3>{inline(line[4:])}</h3>")
         elif line.startswith("## "):
-            out.append(f"<h2>{inline(line[3:])}</h2>")
+            anchor = " id='bms'" if line.startswith("## BMS") else ""
+            out.append(f"<h2{anchor}>{inline(line[3:])}</h2>")
         elif line.startswith("# "):
             continue
     flush_para()
@@ -106,13 +116,15 @@ PAGE = """<!doctype html>
 main{max-width:1000px;margin:0 auto;padding:24px 16px 64px}h1{font-size:26px;margin:0 0 4px}h2{margin-top:36px;font-size:20px}
 h3{font-size:16px;margin-top:24px}.sub{color:var(--mut)}a{color:var(--acc)}code{background:var(--code);padding:1px 4px;border-radius:4px}
 .tw{overflow-x:auto}table{border-collapse:collapse;width:100%;margin:8px 0;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
-th{font-weight:600}svg{width:100%;height:auto;margin:8px 0}.g{stroke:var(--line)}.ax,.lg{fill:var(--mut);font-size:11px}
+th{font-weight:600}svg,img{width:100%;height:auto;margin:8px 0}.g{stroke:var(--line)}.ax,.lg{fill:var(--mut);font-size:11px}
 .tg{fill:none;stroke:var(--mut);stroke-width:1.5;stroke-dasharray:4 3}.rp{fill:none;stroke:var(--acc);stroke-width:2}
 .ltg{fill:var(--mut)}.lrp{fill:var(--acc)}
 </style></head><body><main>
 <h1>motor-led-mw</h1>
 <p class="sub">Motor control and LED middleware in C on Zephyr with TrustZone (TF-M), an Ethernet stack and PSA Crypto,
-plus an AI agent that writes the unit tests and runs them on the target. All in QEMU (Arm MPS2 boards), no real hardware.
+plus an AI agent that writes the unit tests and runs them on the target, and (since v0.2.0) a battery management (BMS)
+module with SoC estimation validated on real cell data. All in QEMU (Arm MPS2 boards), no real hardware.
+Jump to: <a href="#bms">BMS module</a>.
 Code: <a href="https://github.com/pavanyadava007/motor-led-mw">github.com/pavanyadava007/motor-led-mw</a></p>
 <h2>Node demo: speed over time</h2>
 <p>Signed UDP commands to the node in QEMU: +2000 rpm, rejected frames (replay, bad tag, wrong key, over limit),

@@ -1,0 +1,38 @@
+{
+ "qemu_exit": 0,
+ "stdout": "",
+ "groups": {
+  "bms_cycle": {
+   "insns_total": 6701190,
+   "calls": 1000,
+   "insns_per_call": 6701.2
+  },
+  "ekf_step": {
+   "insns_total": 2135724,
+   "calls": 11988,
+   "insns_per_call": 178.2
+  },
+  "monitor": {
+   "insns_total": 1067998,
+   "calls": 1000,
+   "insns_per_call": 1068.0
+  },
+  "state_machine": {
+   "insns_total": 23063,
+   "calls": 1000,
+   "insns_per_call": 23.1
+  },
+  "balance": {
+   "insns_total": 140118,
+   "calls": 1000,
+   "insns_per_call": 140.1
+  },
+  "crc_e2e": {
+   "insns_total": 2554994,
+   "calls": 1000,
+   "insns_per_call": 2555.0
+  }
+ },
+ "notes": "ekf_step counts per EKF step (12 per cycle; the first cycle runs the OCV init instead). crc_e2e counts per cycle: 1 RX E2E check + 3 TX protect calls (4 CRCs over 8 bytes).",
+ "variant": "bms_crc8_j1850 bit-serial (-DBMS_CRC_BITWISE)"
+}
