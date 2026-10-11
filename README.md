@@ -12,9 +12,6 @@ mutation testing that its tests really catch bugs. Everything runs on emulated A
   (requirements to tests)
 - Change history: [CHANGELOG.md](CHANGELOG.md)
 
-> **No real hardware was used.** The microcontrollers are emulated in QEMU, and the motor, the LED board and the
-> battery pack are software models or recorded lab data. See [Limits](#limits).
-
 ## In one picture
 
 ```mermaid
