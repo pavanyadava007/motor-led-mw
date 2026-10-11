@@ -104,7 +104,7 @@ th{font-weight:600}img{width:100%;height:auto;margin:8px 0}
 <p class="sub">Small embedded C software for a car-style control unit: a brushless motor and an RGB LED driven over
 signed commands (Zephyr + TrustZone TF-M, PSA Crypto), a battery management module with an EKF state-of-charge
 estimator checked on real cell data, and mutation testing that measures whether the tests catch bugs, including tests
-written by a local AI agent. All in QEMU (Arm MPS2 boards), no real hardware.
+written by a local AI agent. Runs on emulated Arm MPS2 boards (QEMU).
 Jump to: <a href="#key-results">Key results</a>, <a href="#detailed-results">Detailed results</a>,
 <a href="#limits">Limits</a>.
 Code, diagrams and the algorithms explained: <a href="https://github.com/pavanyadava007/motor-led-mw">github.com/pavanyadava007/motor-led-mw</a></p>
